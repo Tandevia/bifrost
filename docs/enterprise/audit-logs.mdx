@@ -124,7 +124,7 @@ POST routes that only test or preview something are recorded with action `read`,
 
 Role assignment, role permission changes, API key creation and updates, identity provider changes, license uploads, SCIM provisioning token rotation, trusted network changes, Edge app approvals and changes to the Edge legacy CA key cutoff are recorded at severity `high`.
 
-Diffs never contain secrets. A field whose name looks like a secret shows up with `redacted: true` and no values. That covers `value`, `key`, `secret`, `token`, `password`, `api_key`, `client_secret`, `private_key`, `authorization`, `cookie`, `credential`, `credentials`, and any name ending in `_key`, `_secret`, `_token` or `_password`. Provider configs, provider keys, MCP clients, identity providers and guardrail configs are diffed from their redacted forms. Fields that change on every write without anyone choosing to change them are left out: `created_at`, `updated_at`, usage counters, reset times, config hashes, and the row IDs and owner keys of nested records. Adding a budget to a virtual key reports its limit and reset window, not a dozen bookkeeping fields. A diff stops at 200 fields or 16 KB and sets `truncated: true`.
+Diffs leave out secret values. A field whose name looks like a secret shows up with `redacted: true` and no values. That covers `value`, `key`, `secret`, `token`, `password`, `api_key`, `client_secret`, `private_key`, `authorization`, `cookie`, `credential`, `credentials`, and any name ending in `_key`, `_secret`, `_token` or `_password`. Provider configs, provider keys, MCP clients, identity providers and guardrail configs are diffed from their redacted forms. One gap remains: a secret embedded in a webhook URL, such as the path of a Slack incoming webhook, shows up in the diff, the same way it shows up in the webhook API response. Fields that change on every write without anyone choosing to change them are left out: `created_at`, `updated_at`, usage counters, reset times, config hashes, and the row IDs and owner keys of nested records. Adding a budget to a virtual key reports its limit and reset window, not a dozen bookkeeping fields. A diff stops at 200 fields or 16 KB and sets `truncated: true`.
 
 ### System events
 
@@ -134,7 +134,9 @@ Background jobs write events too. Their initiator has type `system` and ID `syst
 | ------------------------------------ | --------------------------------------------------------------------------------------------- |
 | `directory.synced`                   | A directory or SCIM sync job finishes.                                                        |
 | `identity.reconciled`                | An identity reconcile job runs.                                                               |
-| `access_profile.*`                   | Access profile propagation and role apply or revoke jobs run.                                 |
+| `access_profile.propagated`          | An access profile propagation job finishes.                                                   |
+| `role.profile_applied`               | A job applies an access profile to every user with a role.                                    |
+| `role.profile_revoked`               | A job removes an access profile from every user with a role.                                  |
 | `access_profile.vk_rotated`          | Scheduled virtual key rotation runs. The outcome is `failure` if any key failed to rotate.     |
 | `user.role_synced`                   | A role is synced from the identity provider. Severity `high`.                                 |
 | `user.status_reconciled`             | Status reconcile deprovisions a user. Severity `high`.                                        |
@@ -142,9 +144,9 @@ Background jobs write events too. Their initiator has type `system` and ID `syst
 | `audit.window_archived`              | An archive window is written to object storage.                                               |
 | `config.file_applied`                | At startup, `config.json` sections for client config, providers or MCP clients overwrite the stored config. |
 | `audit.settings_changed`             | The `audit_logs` settings differ from the previous boot. Severity `high`.                     |
-| `audit.logging_disabled`             | Audit logging is turned off. Written once, before logging stops.                              |
+| `audit.logging_disabled`             | The first boot with audit logging turned off. Written once. Severity `high`.                  |
 
-At every boot Bifrost compares the `audit_logs` settings with those of the previous boot. If they differ, it records `audit.settings_changed` with the diff. Signing keys appear only as key IDs and a short fingerprint of `hmac_key`, never the key itself. Someone who turns audit logging off to hide their tracks still leaves `audit.logging_disabled` as the last row.
+At every boot Bifrost compares the `audit_logs` settings with those of the previous boot. If they differ, it records `audit.settings_changed` with the diff. Signing keys appear only as key IDs and a short fingerprint of `hmac_key`, never the key itself. Audit settings are read at startup, so turning logging off takes effect on the next boot. That first boot with `enabled: false` writes `audit.logging_disabled` straight to the store and records nothing after it. Someone who turns audit logging off to hide their tracks still leaves that event as the last row.
 
 ## Event reference
 
@@ -451,7 +453,7 @@ Every event Bifrost records by name, grouped by area. Events marked "System even
 | Event                    | What it means and when it occurs                                                      |
 | ------------------------ | ------------------------------------------------------------------------------------- |
 | `audit.settings_changed` | System event. The `audit_logs` settings differ from the previous boot. Severity `high`. |
-| `audit.logging_disabled` | System event. Audit logging is turned off. Written once, before logging stops. Severity `high`. |
+| `audit.logging_disabled` | System event. Bifrost boots with audit logging turned off. Written once, on the first such boot. Severity `high`. |
 | `audit.retention_purged` | System event. Retention deletes audit rows older than the retention period.           |
 | `audit.window_archived`  | System event. A window of audit rows is written to object storage.                    |
 
@@ -561,6 +563,7 @@ The table shows:
 | Column        | Description                                                                                          |
 | ------------- | ---------------------------------------------------------------------------------------------------- |
 | **Time**      | When the event occurred.                                                                             |
+| **Event**     | The event name, such as `virtual_key.updated`. A shield marks events with severity `high`.           |
 | **Action**    | The operation performed, such as create, update, delete, authenticate, authorize, export, or import. |
 | **Outcome**   | The result of the operation: success, failure, or pending.                                           |
 | **Initiator** | The user, API key, or system actor that initiated the action.                                        |
@@ -569,7 +572,18 @@ The table shows:
 | **IP**        | The request IP address, when available. Always empty when `omit_ip_addresses` is on.                 |
 | **Duration**  | Request duration in milliseconds, when available.                                                    |
 
-You can search by initiator, target, IP, or path, and filter by action, outcome, severity, start date, and end date. With `omit_ip_addresses` on, search skips IPs and the IP filter disappears. The API also filters by event name with `event_name` or `event_names`.
+You can search by initiator, target, IP, or path, and filter by event, action, outcome, severity, start date, and end date. With `omit_ip_addresses` on, search skips IPs and the IP filter disappears. The API filters by event name with `event_name` or `event_names`.
+
+### Viewing an event
+
+Click a row to open the event. The event ID goes into the page URL as `audit_log=`, so you can share a link that opens straight to it. The event view shows:
+
+- **Changes.** Each changed field with its value before and after. Paths read as labels, such as "Budgets › 1 › Max limit", with the raw path on hover. Secret fields read "Changed, value hidden". Events recorded before Bifrost dropped bookkeeping fields from diffs keep those fields behind a "Show internal fields" toggle.
+- **Who.** The initiator, auth method, on-behalf-of user, session reference and IP address.
+- **Target and request.** The target's name and type, and the request path, request ID, duration, user agent and event ID. IDs have copy buttons.
+- **Integrity.** A **Verify signature** button that checks the event's signature and reports the key it was signed with, or why it couldn't be verified.
+
+Press the up and down arrow keys, or K and J, to move to the previous or next event. At either end of the page the view loads the neighbouring page.
 
 ## Exporting Audit Logs
 
@@ -727,7 +741,7 @@ Set `archive_object_lock` to make the archive write-once. Bifrost writes every p
 
 Create the bucket with Object Lock enabled (S3) or object retention enabled (GCS). Bifrost checks this at startup. If the bucket doesn't support it, Bifrost logs an error and runs without archival.
 
-A locked part can't be overwritten, so a retried window writes its parts under new keys, `part-00000-<attempt>.jsonl`. The failed attempt's parts stay in the bucket as orphans until their lock expires. The manifest lists only the committed parts. Lifecycle rules can't delete a locked object before its `retain_until`.
+A locked part can't be overwritten, so under object lock every attempt writes its parts under its own keys, `part-00000-<attempt>.jsonl.gz` (`.jsonl` with compression off), where `<attempt>` is a random 8-character ID. A failed attempt's parts stay in the bucket as orphans until their lock expires. The manifest lists only the committed parts. Lifecycle rules can't delete a locked object before its `retain_until`.
 
 <Warning>
 In `compliance` mode nobody can delete a locked object before it expires, including the bucket owner and the root account. Set `retention_days` to what your compliance requirement asks for and no more, since storage for those objects can't be reclaimed early.
