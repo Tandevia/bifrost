@@ -13,6 +13,8 @@
   COPY ui/ ./
 
   # Build UI (skip the copy-build step)
+  # NODE_OPTIONS lets small build hosts raise the heap for tsc, e.g. --max-old-space-size=3072
+  ARG NODE_OPTIONS
   RUN npm run build-enterprise
   # Skip the copy-build step since we'll copy the files in the Go build stage
 

@@ -10,6 +10,8 @@ services:
       dockerfile: transports/Dockerfile
       args:
         VERSION: ${GATEWAY_VERSION:-dev}
+        # tsc needs more than Node's default heap on a 2 GB droplet (swap covers the rest).
+        NODE_OPTIONS: --max-old-space-size=3072
     image: tandevia/gateway:${GATEWAY_VERSION:-dev}
     restart: unless-stopped
     env_file: .env
