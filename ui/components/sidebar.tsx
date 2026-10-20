@@ -1684,7 +1684,7 @@ export default function AppSidebar() {
 						{/* max-w caps an unusually wide uploaded logo so it cannot push the
 						    collapse button out of the header; object-contain preserves its
 						    aspect ratio within that box. */}
-						<img className="h-[22px] w-auto max-w-[150px] object-contain" src={logoSrc} alt={logoAlt} width={70} height={70} />
+						<img className="h-[22px] w-auto max-w-[176px] object-contain" src={logoSrc} alt={logoAlt} width={70} height={70} />
 					</Link>
 					<button
 						onClick={toggleSidebar}

@@ -98,7 +98,7 @@ export function UpdatingScreen() {
 				aria-live="polite"
 			>
 				<div className="flex items-center border-b px-5 py-4 sm:px-6">
-					<img src={logoSrc} alt={logoAlt} className="h-5 w-auto max-w-[180px] object-contain" />
+					<img src={logoSrc} alt={logoAlt} className="h-[22px] w-auto max-w-[200px] object-contain" />
 				</div>
 
 				<div className="px-5 py-8 sm:px-8 sm:py-10">
