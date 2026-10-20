@@ -1,4 +1,3 @@
 data/
+caddy/
 .env
-cloudflared/credentials.json
-cloudflared/config.yml

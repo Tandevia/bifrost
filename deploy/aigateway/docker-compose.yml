@@ -1,8 +1,8 @@
 # Tandevia Gateway on aigateway.forscope.eu (DigitalOcean droplet tandevia-gateway).
 #
-# The gateway is built from this repository and never listens on a public port:
-# cloudflared opens an outbound tunnel to Cloudflare, which terminates TLS for
-# aigateway.forscope.eu. Secrets live in .env next to this file (see README.md).
+# The gateway is built from this repository and listens only on the internal
+# network; Caddy terminates HTTPS on 80/443 with a Let's Encrypt certificate.
+# Secrets live in .env next to this file (see README.md).
 services:
   gateway:
     build:
@@ -24,11 +24,16 @@ services:
     ports:
       - "127.0.0.1:8080:8080"
 
-  cloudflared:
-    image: cloudflare/cloudflared:2026.9.3
+  caddy:
+    image: caddy:2.11.6
     restart: unless-stopped
-    command: tunnel --no-autoupdate --config /etc/cloudflared/config.yml run
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
     volumes:
-      - ./cloudflared:/etc/cloudflared:ro
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./caddy/data:/data
+      - ./caddy/config:/config
     depends_on:
       - gateway

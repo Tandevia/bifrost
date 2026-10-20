@@ -1,0 +1,11 @@
+{
+	email j.sulak@forscope.eu
+}
+
+aigateway.forscope.eu {
+	encode zstd gzip
+	# Streaming responses (SSE, realtime) must not be buffered.
+	reverse_proxy gateway:8080 {
+		flush_interval -1
+	}
+}

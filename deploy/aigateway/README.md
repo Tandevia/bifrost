@@ -8,10 +8,11 @@ Tandevia Gateway on the DigitalOcean droplet `tandevia-gateway` (fra1, project T
 | compose | `/opt/tandevia-gateway/deploy/aigateway` |
 | data (SQLite config + logs) | `deploy/aigateway/data/`, seeded with `config.json` from this folder |
 | secrets | `deploy/aigateway/.env` (mode 600, never committed) |
-| tunnel | Cloudflare tunnel `aigateway` → `http://gateway:8080` |
+| HTTPS | Caddy on 80/443, Let's Encrypt certificate in `deploy/aigateway/caddy/` |
+| DNS | Cloudflare, zone forscope.eu: `A aigateway → 104.248.43.141`, DNS only (grey cloud) |
 
-The droplet accepts only SSH. HTTPS comes in through the Cloudflare tunnel, so the
-gateway port is never exposed to the internet.
+The firewall `tandevia-gateway` allows 22, 80 and 443. The gateway port 8080 is bound to
+the droplet's loopback only; everything public goes through Caddy.
 
 ## Secrets (`.env`)
 
