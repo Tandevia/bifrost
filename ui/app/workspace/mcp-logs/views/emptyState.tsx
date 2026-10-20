@@ -85,10 +85,10 @@ export function MCPEmptyState({ error, statusIndicator }: MCPEmptyStateProps) {
 				python: `import openai
 import requests
 
-# Step 1: Initialize OpenAI client with Bifrost
+# Step 1: Initialize OpenAI client with Gateway
 client = openai.OpenAI(
     base_url="${baseUrl}/openai",
-    api_key="dummy-api-key"  # Handled by Bifrost
+    api_key="dummy-api-key"  # Handled by Gateway
 )
 
 # Step 2: Send chat request
@@ -101,7 +101,7 @@ response = client.chat.completions.create(
 message = response.choices[0].message
 if message.tool_calls:
     for tool_call in message.tool_calls:
-        # Step 4: Execute tool via Bifrost
+        # Step 4: Execute tool via Gateway
         tool_result = requests.post(
             "${baseUrl}/v1/mcp/tool/execute",
             json={
@@ -129,7 +129,7 @@ if message.tool_calls:
 // Step 1: Initialize OpenAI client with Bifrost
 const openai = new OpenAI({
   baseURL: "${baseUrl}/openai",
-  apiKey: "dummy-api-key", // Handled by Bifrost
+  apiKey: "dummy-api-key", // Handled by Gateway
 });
 
 // Step 2: Send chat request
@@ -181,7 +181,7 @@ client = openai.OpenAI(
     api_key="dummy-api-key"
 )
 
-# With agent mode enabled, Bifrost automatically:
+# With agent mode enabled, Gateway automatically:
 # 1. Receives tool calls from LLM
 # 2. Executes auto-approved tools (e.g., read_file, list_directory)
 # 3. Feeds results back to LLM

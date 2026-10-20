@@ -656,7 +656,7 @@ export function RoutingRuleSheet({ open, onOpenChange, editingRule, onSuccess }:
 								})}
 							/>
 							<p className="text-muted-foreground text-xs">
-								Streaming only. If no token arrives in time, Bifrost moves to the next fallback. The last fallback is never cut off.
+								Streaming only. If no token arrives in time, Gateway moves to the next fallback. The last fallback is never cut off.
 							</p>
 							{errors.ttft_timeout_ms && (
 								<p id="ttft_timeout_ms-error" className="text-destructive text-sm" data-testid="routing-rule-ttft-timeout-error">

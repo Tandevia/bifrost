@@ -162,7 +162,7 @@ function RawCaptureUnavailableNotice({ detail }: { detail?: AgentLogDetail }) {
 		return (
 			<div className="space-y-4">
 				<p className="text-muted-foreground text-sm">
-					This operation is handled by Bifrost without an upstream request. The protocol payloads below are serialized data, not transport
+					This operation is handled by Gateway without an upstream request. The protocol payloads below are serialized data, not transport
 					captures.
 				</p>
 				{detail.request_body && <PayloadBlock title="Request payload" code={formatPayload(detail.request_body)} />}
@@ -876,7 +876,7 @@ export function AgentLogDetailSheet({
 												<LogEntryDetailsView
 													className="w-full"
 													label="Latency"
-													tooltip="Total end-to-end request time: upstream plus Bifrost overhead."
+													tooltip="Total end-to-end request time: upstream plus Gateway overhead."
 													value={<div>{displayLog.latency!.toFixed(2)}ms</div>}
 												/>
 											)}
@@ -891,8 +891,8 @@ export function AgentLogDetailSheet({
 											{displayLog.overhead_latency != null && !isNaN(displayLog.overhead_latency) && (
 												<LogEntryDetailsView
 													className="w-full"
-													label="Bifrost Overhead"
-													tooltip="Time added by Bifrost itself: routing, plugins, and processing."
+													label="Gateway Overhead"
+													tooltip="Time added by Gateway itself: routing, plugins, and processing."
 													value={<div>{displayLog.overhead_latency.toFixed(2)}ms</div>}
 												/>
 											)}

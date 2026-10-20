@@ -139,7 +139,7 @@ function toBrandingAssets(branding: BrandingState | undefined, isDark: boolean):
 		logoSrc: hasLogo ? resolveBrandingAssetUrl(branding!.logo_url) : isDark ? DEFAULT_LOGO_DARK : DEFAULT_LOGO_LIGHT,
 		iconSrc: hasIcon ? resolveBrandingAssetUrl(branding!.icon_url) : isDark ? DEFAULT_ICON_DARK : DEFAULT_ICON_LIGHT,
 		isCustom: Boolean(branding?.enabled),
-		logoAlt: branding?.enabled ? "" : "Bifrost",
+		logoAlt: branding?.enabled ? "" : "Tandevia Gateway",
 	};
 }
 

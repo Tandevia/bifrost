@@ -159,7 +159,7 @@ export function createCodePlugin(options: CodePluginOptions = {}): CodeHighlight
 					}
 				})
 				.catch((err) => {
-					console.error("[Bifrost Code Highlighter] Failed to highlight:", err);
+					console.error("[Gateway Code Highlighter] Failed to highlight:", err);
 					pendingCallbacks.delete(key);
 				})
 				.finally(() => {

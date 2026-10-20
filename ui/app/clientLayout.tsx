@@ -209,7 +209,7 @@ function ConfigUnreachable({ isRetrying, onRetry }: { isRetrying: boolean; onRet
 					We can&apos;t reach the dashboard
 				</h1>
 				<p className="text-muted-foreground mt-2 max-w-md text-sm leading-6">
-					Bifrost didn&apos;t return its configuration. This is usually a brief interruption, especially while Bifrost is being upgraded.
+					Gateway didn&apos;t return its configuration. This is usually a brief interruption, especially while Gateway is being upgraded.
 				</p>
 				<div className="mt-6 flex items-center gap-3 border-t pt-5">
 					<Button size="sm" isLoading={isRetrying} disabled={isRetrying} data-testid="config-retry-btn" onClick={onRetry}>

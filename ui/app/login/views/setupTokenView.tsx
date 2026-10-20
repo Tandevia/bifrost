@@ -24,7 +24,7 @@ const CONFIG_SNIPPET = `{
 function SetupTokenInstructions() {
 	return (
 		<div className="text-muted-foreground space-y-3 text-sm" data-testid="setup-token-instructions">
-			<p>The setup token is a secret the operator sets on the server. Set it one of two ways, then restart Bifrost:</p>
+			<p>The setup token is a secret the operator sets on the server. Set it one of two ways, then restart Gateway:</p>
 			<ul className="list-disc space-y-1 pl-5">
 				<li>
 					Set the <code className="text-foreground">BIFROST_SETUP_TOKEN</code> environment variable.
@@ -72,7 +72,7 @@ export default function SetupTokenView({ setupTokenConfigured }: SetupTokenViewP
 				headers: { [SETUP_TOKEN_HEADER]: setup_token },
 			});
 		} catch {
-			form.setError("setup_token", { message: "Could not reach Bifrost. Check that the server is running." });
+			form.setError("setup_token", { message: "Could not reach Gateway. Check that the server is running." });
 			return;
 		}
 		if (res.status === 401 || res.status === 403) {
@@ -80,7 +80,7 @@ export default function SetupTokenView({ setupTokenConfigured }: SetupTokenViewP
 			return;
 		}
 		if (!res.ok) {
-			form.setError("setup_token", { message: `Bifrost returned ${res.status} while checking the token` });
+			form.setError("setup_token", { message: `Gateway returned ${res.status} while checking the token` });
 			return;
 		}
 		form.reset();
@@ -96,7 +96,7 @@ export default function SetupTokenView({ setupTokenConfigured }: SetupTokenViewP
 					</div>
 
 					<div className="space-y-2 text-center">
-						<h1 className="text-foreground text-lg font-semibold">Finish setting up Bifrost</h1>
+						<h1 className="text-foreground text-lg font-semibold">Finish setting up Gateway</h1>
 						<p className="text-muted-foreground text-sm">
 							Dashboard authentication is not configured, so the API is locked. Enter the setup token to continue and create an admin
 							account.

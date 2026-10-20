@@ -176,7 +176,7 @@ export default function CloudflareMigrationDialog({ show, provider, onDeferred, 
 								<>
 									<p>
 										<span className="text-foreground font-medium">{provider.name}</span> is a custom provider pointing at Cloudflare Workers
-										AI. Bifrost now supports Cloudflare natively, and the name &quot;cloudflare&quot; belongs to the official provider, so
+										AI. Gateway now supports Cloudflare natively, and the name &quot;cloudflare&quot; belongs to the official provider, so
 										this custom provider can no longer be edited. Your existing configuration needs to be migrated to the official provider.
 									</p>
 									<p>

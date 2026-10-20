@@ -447,7 +447,7 @@ export default function PushConfigsPage() {
 					<AlertDialogHeader>
 						<AlertDialogTitle>Delete this push configuration?</AlertDialogTitle>
 						<AlertDialogDescription>
-							Bifrost will stop accepting and delivering push notifications for this callback. The upstream agent must register it again to
+							Gateway will stop accepting and delivering push notifications for this callback. The upstream agent must register it again to
 							restore delivery.
 						</AlertDialogDescription>
 					</AlertDialogHeader>

@@ -75,7 +75,7 @@ describe("missingHeaderKeys", () => {
 });
 
 describe("providerRejectedTheClient", () => {
-	test("matches the provider disowning Bifrost's client", () => {
+	test("matches the provider disowning Gateway's client", () => {
 		expect(providerRejectedTheClient("provider rejected the refresh (HTTP 401, invalid_client: Invalid client_id)")).toBe(true);
 	});
 
@@ -99,7 +99,7 @@ describe("providerRejectedTheClient", () => {
 // and the hint that sends admins to it read this, so neither can name an
 // action the other does not offer.
 describe("supportsClientReregistration", () => {
-	test("covers the auth types whose client_id Bifrost registered itself", () => {
+	test("covers the auth types whose client_id Gateway registered itself", () => {
 		expect(supportsClientReregistration("oauth")).toBe(true);
 		expect(supportsClientReregistration("per_user_oauth")).toBe(true);
 	});

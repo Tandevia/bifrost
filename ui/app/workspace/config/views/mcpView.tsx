@@ -426,7 +426,7 @@ export default function MCPView() {
 							Allow Temp Token Auth Links
 						</label>
 						<p className="text-muted-foreground text-sm">
-							When enabled, per-user MCP OAuth links can include a short-lived scoped token so someone without an active Bifrost dashboard
+							When enabled, per-user MCP OAuth links can include a short-lived scoped token so someone without an active Gateway dashboard
 							session can complete the flow. Keep disabled to require normal dashboard authentication.
 						</p>
 					</div>
@@ -575,8 +575,8 @@ export default function MCPView() {
 								External Client URL
 							</label>
 							<p className="text-muted-foreground text-sm">
-								Override Bifrost's public base URL when it runs behind a reverse proxy. <b>Leave blank to derive the URL</b> from the
-								incoming <code className="text-xs">Host</code> header. Used as the <code className="text-xs">redirect_uri</code> Bifrost
+								Override Gateway's public base URL when it runs behind a reverse proxy. <b>Leave blank to derive the URL</b> from the
+								incoming <code className="text-xs">Host</code> header. Used as the <code className="text-xs">redirect_uri</code> Gateway
 								registers with upstream OAuth providers when it acts as a client to an MCP server (e.g. Notion or Jira redirect the browser
 								to <code className="text-xs">{"<URL>/api/oauth/callback"}</code> after login). Supports env var syntax (e.g.{" "}
 								<code className="text-xs">env.BIFROST_EXTERNAL_URL</code>).
@@ -596,7 +596,7 @@ export default function MCPView() {
 									<p>
 										Upstream OAuth providers lock the <code className="text-xs">redirect_uri</code> to whatever was registered initially, so
 										MCP clients that already completed OAuth will fail with <em>&quot;Invalid redirect URI&quot;</em>. To recover, clear the
-										stored OAuth client credentials for the affected MCP servers and re-authorize so Bifrost re-runs Dynamic Client
+										stored OAuth client credentials for the affected MCP servers and re-authorize so Gateway re-runs Dynamic Client
 										Registration with the new URL.
 									</p>
 								</AlertDescription>
@@ -674,7 +674,7 @@ export default function MCPView() {
 										</label>
 										<p className="text-muted-foreground text-sm">
 											Stable public URL advertised in discovery documents and embedded as the <code className="text-xs">iss</code> claim in
-											every JWT. Required in OAuth and Both modes: Bifrost never derives the issuer from the request{" "}
+											every JWT. Required in OAuth and Both modes: Gateway never derives the issuer from the request{" "}
 											<code className="text-xs">Host</code> header, because that header is caller-controlled. Supports env var syntax (e.g.{" "}
 											<code className="text-xs">env.BIFROST_ISSUER_URL</code>).
 										</p>

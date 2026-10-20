@@ -398,7 +398,7 @@ export function SkillsListView({
 					<BookOpenText className="h-24 w-24" strokeWidth={1} />
 				</div>
 				<div className="flex flex-col gap-1">
-					<h1 className="text-muted-foreground text-xl font-medium">Create, version, and share Agent Skills from Bifrost</h1>
+					<h1 className="text-muted-foreground text-xl font-medium">Create, version, and share Agent Skills from Gateway</h1>
 					<div className="text-muted-foreground mx-auto mt-2 max-w-xl text-sm font-normal">
 						Manage SKILL.md instructions and supporting files in one place, publish immutable versions, and expose them as installable
 						plugins for Claude Code, Codex, and other skill-aware clients.
@@ -534,7 +534,7 @@ export function SkillsListView({
 												to enable marketplace registration.
 											</>
 										) : (
-											"Git is not available on the server. Install git and restart Bifrost to enable marketplace registration for Claude Code and Codex."
+											"Git is not available on the server. Install git and restart Gateway to enable marketplace registration for Claude Code and Codex."
 										)}
 									</p>
 								</TooltipContent>

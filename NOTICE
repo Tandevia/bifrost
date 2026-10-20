@@ -1,0 +1,13 @@
+Tandevia Gateway
+Copyright 2026 Tandevia
+
+This product is a modified version of Bifrost (https://github.com/maximhq/bifrost),
+Copyright 2025 H3 Labs Inc., licensed under the Apache License, Version 2.0
+(see LICENSE).
+
+Modifications by Tandevia: product name, logos, favicon and external links in the
+web UI (ui/), README, and deployment files (deploy/). The full list of changes is
+the git history of the `tandevia` branch relative to upstream `dev`.
+
+"Bifrost" is a name of H3 Labs Inc. Tandevia Gateway is not affiliated with or
+endorsed by H3 Labs Inc.

@@ -131,7 +131,7 @@ function ConsentView({ flowId }: { flowId: string }) {
 					<ShieldCheck className="text-primary size-7" />
 				</div>
 				<h1 className="text-xl font-semibold tracking-tight">{clientName} wants to connect</h1>
-				<p className="text-muted-foreground mt-1.5 text-sm">Choose how you'd like to identify yourself to Bifrost</p>
+				<p className="text-muted-foreground mt-1.5 text-sm">Choose how you'd like to identify yourself to Gateway</p>
 				<p className="mt-4 text-sm">Continue only if you recognize this application and its callback destination:</p>
 				<p className="mt-2 font-mono text-sm break-all" data-testid="oauth-consent-redirect-uri">
 					{flow.redirect_uri}
@@ -186,7 +186,7 @@ function ConsentView({ flowId }: { flowId: string }) {
 							</div>
 							<div>
 								<p className="text-sm font-medium">Sign in with your account</p>
-								<p className="text-muted-foreground text-xs">Requires a Bifrost dashboard account</p>
+								<p className="text-muted-foreground text-xs">Requires a Gateway dashboard account</p>
 							</div>
 						</div>
 						<Button asChild variant="outline" className="mt-4 w-full">
@@ -217,7 +217,7 @@ function ConsentView({ flowId }: { flowId: string }) {
 							</div>
 							<div>
 								<p className="text-sm font-medium">Virtual Key</p>
-								<p className="text-muted-foreground text-xs">Use a Virtual Key from your Bifrost workspace</p>
+								<p className="text-muted-foreground text-xs">Use a Virtual Key from your Gateway workspace</p>
 							</div>
 						</div>
 						<Input
@@ -329,12 +329,12 @@ function RedirectToSignIn({ loginHref }: { loginHref: string }) {
 			<div className="text-center">
 				<h1 className="text-xl font-semibold tracking-tight">Sign in to continue</h1>
 				<p className="text-muted-foreground mt-2 text-sm">
-					This authorization needs a signed-in Bifrost account. Taking you to sign in — you'll come straight back here.
+					This authorization needs a signed-in Gateway account. Taking you to sign in — you'll come straight back here.
 				</p>
 				<Button asChild className="mt-6 w-full">
 					<a href={loginHref} data-testid="oauth-consent-signin-required-link">
 						<LogIn className="mr-2 size-4" />
-						Sign in to Bifrost
+						Sign in to Gateway
 					</a>
 				</Button>
 			</div>

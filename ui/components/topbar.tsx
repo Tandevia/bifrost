@@ -21,9 +21,10 @@ import { baseApi } from "@/lib/store/apis/baseApi";
 import { cn } from "@/lib/utils";
 import type { UserInfo } from "@enterprise/lib/store/utils/tokenManager";
 import { getUserInfo } from "@enterprise/lib/store/utils/tokenManager";
-import { BooksIcon, DiscordLogoIcon, GithubLogoIcon } from "@phosphor-icons/react";
+import { BRAND_CONTACT_URL, BRAND_WEBSITE_URL } from "@/lib/constants/brand";
+import { BooksIcon, GlobeIcon } from "@phosphor-icons/react";
 import { useLocation, useNavigate } from "@tanstack/react-router";
-import { BugIcon, ChevronDown, LogOut, Menu, User } from "lucide-react";
+import { ChevronDown, LifeBuoy, LogOut, Menu, User } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Fragment, useEffect, useMemo, useState } from "react";
 
@@ -39,20 +40,15 @@ const externalLinks: {
 	strokeWidth?: number;
 }[] = [
 	{
-		title: "Discord Server",
-		url: "https://discord.gg/exN5KAydbU",
-		icon: DiscordLogoIcon,
-	},
-	{
-		title: "GitHub Repository",
-		url: "https://github.com/maximhq/bifrost",
-		icon: GithubLogoIcon,
-	},
-	{
-		title: "Report a bug",
-		url: "https://github.com/maximhq/bifrost/issues/new?title=[Bug Report]&labels=bug&type=bug&projects=maximhq/1",
-		icon: BugIcon,
+		title: "Contact support",
+		url: BRAND_CONTACT_URL,
+		icon: LifeBuoy,
 		strokeWidth: 1.5,
+	},
+	{
+		title: "Tandevia website",
+		url: BRAND_WEBSITE_URL,
+		icon: GlobeIcon,
 	},
 	{
 		title: "Full Documentation",

@@ -719,7 +719,7 @@ export default function MCPClientsTable({
 					<AlertDialogHeader>
 						<AlertDialogTitle>Reauthorize {reregisterTarget?.config.name} with a new client</AlertDialogTitle>
 						<AlertDialogDescription>
-							Bifrost will register a new OAuth client with this server&apos;s provider and run the consent flow against it, replacing the
+							Gateway will register a new OAuth client with this server&apos;s provider and run the consent flow against it, replacing the
 							client it currently uses. Use this when the provider no longer recognises the client it issued, which shows up as
 							&quot;invalid_client&quot; on refresh and leaves a plain reauthorize unable to recover the connection.
 							{reregisterTarget?.config.auth_type === "per_user_oauth"
@@ -868,8 +868,8 @@ export default function MCPClientsTable({
 								</DialogTitle>
 								<DialogDescription className="text-xs leading-relaxed">
 									{exchangeVerifyClient?.state === "pending_verification"
-										? "Establish Bifrost's discovery credential using your identity."
-										: "Renew Bifrost's own discovery credential using your identity."}
+										? "Establish Gateway's discovery credential using your identity."
+										: "Renew Gateway's own discovery credential using your identity."}
 								</DialogDescription>
 							</div>
 						</div>
@@ -878,7 +878,7 @@ export default function MCPClientsTable({
 						<InfoBox icon={<KeyRound className="size-4" />}>
 							<p>
 								This exchanges your own signed-in identity to{" "}
-								{exchangeVerifyClient?.state === "pending_verification" ? "establish" : "renew"} Bifrost&apos;s discovery credential for{" "}
+								{exchangeVerifyClient?.state === "pending_verification" ? "establish" : "renew"} Gateway&apos;s discovery credential for{" "}
 								<strong>{exchangeVerifyClient?.config.name}</strong>.
 							</p>
 							{exchangeVerifyClient?.state === "pending_verification" ? (
@@ -963,8 +963,8 @@ export default function MCPClientsTable({
 								</DialogTitle>
 								<DialogDescription className="text-xs leading-relaxed">
 									{exchangeVerifyClient?.state === "pending_verification"
-										? "Establish Bifrost's discovery credential using your identity."
-										: "Renew Bifrost's own discovery credential using your identity."}
+										? "Establish Gateway's discovery credential using your identity."
+										: "Renew Gateway's own discovery credential using your identity."}
 								</DialogDescription>
 							</div>
 						</div>
@@ -973,7 +973,7 @@ export default function MCPClientsTable({
 						<InfoBox icon={<KeyRound className="size-4" />}>
 							<p>
 								This exchanges your own signed-in identity to{" "}
-								{exchangeVerifyClient?.state === "pending_verification" ? "establish" : "renew"} Bifrost&apos;s discovery credential for{" "}
+								{exchangeVerifyClient?.state === "pending_verification" ? "establish" : "renew"} Gateway&apos;s discovery credential for{" "}
 								<strong>{exchangeVerifyClient?.config.name}</strong>.
 							</p>
 							{exchangeVerifyClient?.state === "pending_verification" ? (
@@ -1091,8 +1091,8 @@ export default function MCPClientsTable({
 											<>
 												<p>
 													The client's connection state (healthy, unstable, needs re-authorization, and so on). "Unstable" reflects
-													Bifrost's own connection checks to the server, not the results of tool calls made through it: it self-heals and
-													never blocks tool calls. For per-user clients (OAuth, headers, token exchange), this reflects Bifrost's own
+													Gateway's own connection checks to the server, not the results of tool calls made through it: it self-heals and
+													never blocks tool calls. For per-user clients (OAuth, headers, token exchange), this reflects Gateway's own
 													retained admin credential (used only to periodically refresh the tool list), not any individual user's own
 													session, which is unaffected either way.
 												</p>
@@ -1210,7 +1210,7 @@ export default function MCPClientsTable({
 												    the connection checker's periodic admin-discovery check for
 												    per-user auth types, so this is just the badge uniformly,
 												    same as shared clients. Column-header tooltip above explains
-												    that "unstable" reflects Bifrost's own connection checks, not
+												    that "unstable" reflects Gateway's own connection checks, not
 												    caller traffic. Any state with a recorded reason (or a
 												    per-instance breakdown) gets a drill-down, see StateBadge in
 												    mcpConnectionFailure.tsx. */}

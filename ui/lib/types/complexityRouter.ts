@@ -289,13 +289,13 @@ export const SEMANTIC_VECTOR_STORE_OPTIONS: Array<{ value: SemanticVectorStore; 
 	{
 		value: "embedded",
 		label: "Embedded",
-		tooltip: "Keeps phrase vectors in Bifrost's own memory. No infrastructure to run, but every restart re-embeds them.",
+		tooltip: "Keeps phrase vectors in Gateway's own memory. No infrastructure to run, but every restart re-embeds them.",
 	},
 	{
 		value: "vector_store",
 		label: "Vector Store",
 		tooltip:
-			"Keeps phrase vectors in the vector store configured for Bifrost, so they survive restarts. Falls back to Embedded if no vector store is available.",
+			"Keeps phrase vectors in the vector store configured for Gateway, so they survive restarts. Falls back to Embedded if no vector store is available.",
 	},
 ];
 

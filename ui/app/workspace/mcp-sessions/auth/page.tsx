@@ -185,7 +185,7 @@ function OAuthAuthView() {
 					</>
 				) : (
 					<>
-						You'll be redirected to the provider to sign in and grant access. Bifrost stores the resulting credential against the binding
+						You'll be redirected to the provider to sign in and grant access. Gateway stores the resulting credential against the binding
 						below so this request and future ones can proceed automatically.
 					</>
 				)}
@@ -239,7 +239,7 @@ function HeadersAuthView({ flowId }: { flowId: string }) {
 				</div>
 				<h1 className="text-xl font-semibold tracking-tight">Headers saved</h1>
 				<p className="text-muted-foreground mt-2 text-sm">
-					Bifrost verified the connection and stored your credentials. You can close this tab and retry the original action.
+					Gateway verified the connection and stored your credentials. You can close this tab and retry the original action.
 				</p>
 				<div className="mt-6 flex gap-3">
 					<SessionsTabLink />
@@ -527,13 +527,13 @@ function RedirectToSignIn({ loginHref }: { loginHref: string }) {
 			</div>
 			<h1 className="text-xl font-semibold tracking-tight">Sign in to continue</h1>
 			<p className="text-muted-foreground mt-2 text-sm">
-				Completing this authentication needs a signed-in Bifrost account. Taking you to sign in — you'll come straight back here to finish.
+				Completing this authentication needs a signed-in Gateway account. Taking you to sign in — you'll come straight back here to finish.
 			</p>
 			<div className="mt-6">
 				<Button asChild data-testid="mcp-auth-signin-required-link">
 					<a href={loginHref}>
 						<LogIn className="size-4" />
-						Sign in to Bifrost
+						Sign in to Gateway
 					</a>
 				</Button>
 			</div>

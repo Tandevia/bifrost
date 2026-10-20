@@ -487,7 +487,7 @@ function OverviewTabImpl({
 
 				{/* Bifrost Overhead Chart */}
 				<ChartCard
-					title="Bifrost Overhead"
+					title="Gateway Overhead"
 					loading={loadingLatency}
 					testId="chart-overhead"
 					totalLabel="Avg"

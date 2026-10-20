@@ -385,7 +385,7 @@ export function ApiKeyFormFragment({ control, providerName, baseProviderType, fo
 							{isGithubCopilot && (
 								<FormDescription>
 									Requires Network Config &gt; Base URL set to the host the token was issued for, because a Copilot token does not carry
-									one. Also expires after about 30 minutes, and Bifrost cannot refresh a token it did not mint, so prefer the GitHub App
+									one. Also expires after about 30 minutes, and Gateway cannot refresh a token it did not mint, so prefer the GitHub App
 									below for anything long-running.
 								</FormDescription>
 							)}
@@ -1210,7 +1210,7 @@ export function ApiKeyFormFragment({ control, providerName, baseProviderType, fo
 									<FormLabel htmlFor="databricks-forward-gateway-tags-switch">Forward Governance Tags</FormLabel>
 									<FormDescription>
 										Sends the virtual key, team and customer names as Databricks-Ai-Gateway-Request-Tags, so Databricks usage tracking
-										attributes spend the same way Bifrost does. Names only, never user identifiers.
+										attributes spend the same way Gateway does. Names only, never user identifiers.
 									</FormDescription>
 								</div>
 								<FormControl>
@@ -1311,7 +1311,7 @@ export function ApiKeyFormFragment({ control, providerName, baseProviderType, fo
 					{openaiAuthType === "oauth" && (
 						<>
 							<p className="text-muted-foreground text-sm">
-								Bifrost requests an access token from the token endpoint, sends it as the bearer, caches it per credential and refreshes it
+								Gateway requests an access token from the token endpoint, sends it as the bearer, caches it per credential and refreshes it
 								before it expires. Use this for upstreams that issue short-lived tokens instead of a static key.
 							</p>
 							<FormField
@@ -1420,7 +1420,7 @@ export function ApiKeyFormFragment({ control, providerName, baseProviderType, fo
 										render={({ field }) => (
 											<FormItem>
 												<FormLabel>Private Key</FormLabel>
-												<FormDescription>RSA or EC private key in PEM form. Bifrost signs each assertion with it.</FormDescription>
+												<FormDescription>RSA or EC private key in PEM form. Gateway signs each assertion with it.</FormDescription>
 												<FormControl>
 													<SecretVarInput
 														data-testid="key-input-oauth-private-key"

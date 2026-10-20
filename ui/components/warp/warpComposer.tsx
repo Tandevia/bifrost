@@ -137,7 +137,7 @@ export default function WarpComposer({
 						}
 					}}
 					placeholder={
-						isStreaming && onQueue ? "Ask a follow-up, it is sent when this answer finishes..." : "Ask about your Bifrost data..."
+						isStreaming && onQueue ? "Ask a follow-up, it is sent when this answer finishes..." : "Ask about your Gateway data..."
 					}
 					disabled={disabled}
 					minRows={1}

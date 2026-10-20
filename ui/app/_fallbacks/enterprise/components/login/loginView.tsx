@@ -4,7 +4,8 @@ import { Label } from "@/components/ui/label";
 import { useBranding } from "@/lib/hooks/useBranding";
 import { getErrorMessage, useLoginMutation } from "@/lib/store/apis";
 import { DEFAULT_POST_LOGIN_PATH, getLoginGotoFromSearch } from "@/lib/utils/loginGoto";
-import { BooksIcon, DiscordLogoIcon, GithubLogoIcon } from "@phosphor-icons/react";
+import { BRAND_WEBSITE_URL } from "@/lib/constants/brand";
+import { BooksIcon, GlobeIcon } from "@phosphor-icons/react";
 import { useNavigate } from "@tanstack/react-router";
 import { Eye, EyeOff } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -12,14 +13,9 @@ import { useEffect, useState } from "react";
 
 const externalLinks = [
 	{
-		title: "Discord Server",
-		url: "https://discord.gg/exN5KAydbU",
-		icon: DiscordLogoIcon,
-	},
-	{
-		title: "GitHub Repository",
-		url: "https://github.com/maximhq/bifrost",
-		icon: GithubLogoIcon,
+		title: "Tandevia website",
+		url: BRAND_WEBSITE_URL,
+		icon: GlobeIcon,
 	},
 	{
 		title: "Full Documentation",

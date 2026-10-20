@@ -868,11 +868,11 @@ export const Icons = {
 
 export const SdkIcons = {
 	Bifrost: (props: IconProps) => (
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="24" height="24" {...props}>
-			<path d="M7.17044 2V4.28156L5.06687 9.83345H2L7.17044 2Z" stroke="#27272A" strokeLinejoin="round" />
-			<path d="M8.99614 2V4.28156L11.0997 9.83345H14.1666L8.99614 2Z" stroke="#27272A" strokeLinejoin="round" />
-			<path d="M2.00018 11.8074H5.05359V13.5H2.00018V11.8074Z" stroke="#27272A" strokeLinejoin="round" />
-			<path d="M11.1132 11.8074H14.1666V13.5H11.1132V11.8074Z" stroke="#27272A" strokeLinejoin="round" />
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24" height="24" {...props}>
+			<rect x="9" y="6" width="7" height="36" rx="3.5" fill="#4F46E5" />
+			<rect x="32" y="6" width="7" height="36" rx="3.5" fill="#4F46E5" />
+			<path d="M19 24 H29" stroke="#111827" strokeWidth="4" strokeLinecap="round" />
+			<path d="M25.5 19.5 L30 24 L25.5 28.5" fill="none" stroke="#111827" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
 		</svg>
 	),
 	Python: (props: IconProps) => (

@@ -82,7 +82,7 @@ function buildInitialValues(server: MCPLibraryEntry): CreateMCPClientRequest {
 function authHelpText(authType?: MCPAuthType | string): string {
 	switch (authType) {
 		case "headers":
-			return "Add the request headers Bifrost should send with each tool call.";
+			return "Add the request headers Gateway should send with each tool call.";
 		case "oauth":
 			return "Create the MCP client, then complete the OAuth authorization flow.";
 		case "per_user_oauth":
@@ -224,7 +224,7 @@ export function MCPLibraryInstallSheet({ server, open, onClose, onInstalled }: M
 			<SheetContent className="flex w-full flex-col gap-4 overflow-x-hidden p-0 pt-4">
 				<SheetHeader className="flex flex-col items-start px-0 py-4" headerClassName="mb-0 sticky px-4 md:px-8 -top-4 bg-card z-10">
 					<SheetTitle>Install MCP Server</SheetTitle>
-					<SheetDescription>Connect this library server to Bifrost and supply the credentials it needs.</SheetDescription>
+					<SheetDescription>Connect this library server to Gateway and supply the credentials it needs.</SheetDescription>
 				</SheetHeader>
 
 				<Form {...methods}>
@@ -285,7 +285,7 @@ export function MCPLibraryInstallSheet({ server, open, onClose, onInstalled }: M
 										<FormControl>
 											<Input {...field} data-testid="library-mcp-name-input" placeholder="Server name" maxLength={50} />
 										</FormControl>
-										<p className="text-muted-foreground text-xs">Bifrost uses this name internally when routing MCP tool calls.</p>
+										<p className="text-muted-foreground text-xs">Gateway uses this name internally when routing MCP tool calls.</p>
 										<FormMessage />
 									</FormItem>
 								)}

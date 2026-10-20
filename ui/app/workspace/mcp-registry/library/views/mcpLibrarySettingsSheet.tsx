@@ -121,7 +121,7 @@ export function MCPLibrarySettingsSheet({ open, onClose }: MCPLibrarySettingsShe
 							<div className="space-y-0.5">
 								<Label htmlFor="mcp-library-url">Library Sync URL</Label>
 								<p className="text-muted-foreground text-sm">
-									URL to a custom MCP server catalog. Leave empty to use the default Bifrost catalog. For air-gapped deployments, set a{" "}
+									URL to a custom MCP server catalog. Leave empty to use the default Gateway catalog. For air-gapped deployments, set a{" "}
 									<code>file://</code> URL in <code>config.json</code>.
 								</p>
 							</div>

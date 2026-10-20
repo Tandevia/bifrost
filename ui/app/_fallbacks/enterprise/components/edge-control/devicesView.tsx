@@ -6,7 +6,7 @@ export default function DevicesView() {
 		<EdgeControlFallbackView
 			icon={<MonitorSmartphone className="h-[5.5rem] w-[5.5rem]" strokeWidth={1} />}
 			title="Unlock edge control to manage your devices"
-			description="This feature is a part of the Bifrost enterprise license. We would love to know more about your use case and how we can help you."
+			description="This feature is not included in this edition of Tandevia Gateway. We would love to know more about your use case and how we can help you."
 			readmeLink="https://docs.getbifrost.ai/edge/admin-devices"
 			testIdPrefix="edge-devices"
 		/>

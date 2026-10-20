@@ -33,7 +33,7 @@ const AUTH_METHOD_COPY: Record<AuthMethod, { label: string; icon: typeof KeyRoun
 		label: "OAuth",
 		icon: ShieldCheck,
 		description:
-			"No credential in the config. The client discovers the gateway, opens Bifrost's consent page in a browser, and holds a short-lived token of its own.",
+			"No credential in the config. The client discovers the gateway, opens Gateway's consent page in a browser, and holds a short-lived token of its own.",
 	},
 	idp_token: {
 		label: "Identity provider",
@@ -211,7 +211,7 @@ export function MCPUsageGuideSheet() {
 					<SheetHeader className="flex flex-col items-start px-0 py-4" headerClassName="mb-0 sticky px-4 md:px-8 -top-4 bg-card z-10">
 						<div className="flex items-center gap-2">
 							<div>
-								<SheetTitle>Install Bifrost MCP</SheetTitle>
+								<SheetTitle>Install Gateway MCP</SheetTitle>
 								<SheetDescription>Build a copy-ready command or config for your agent harness.</SheetDescription>
 							</div>
 						</div>

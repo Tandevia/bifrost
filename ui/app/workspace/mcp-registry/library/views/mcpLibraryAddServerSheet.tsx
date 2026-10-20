@@ -161,7 +161,7 @@ export function MCPLibraryAddServerSheet({ open, onClose }: MCPLibraryAddServerS
 				<SheetHeader className="flex flex-col items-start px-0 py-4" headerClassName="mb-0 sticky px-4 md:px-8 -top-4 bg-card z-10">
 					<SheetTitle>Publish Server to Library</SheetTitle>
 					<SheetDescription>
-						Add a reusable server listing that members can discover and install. Nothing connects to Bifrost until someone installs it.
+						Add a reusable server listing that members can discover and install. Nothing connects to Gateway until someone installs it.
 					</SheetDescription>
 				</SheetHeader>
 
@@ -172,7 +172,7 @@ export function MCPLibraryAddServerSheet({ open, onClose }: MCPLibraryAddServerS
 								<div className="flex items-start gap-2">
 									<Info className="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-700" />
 									<p className="text-xs text-blue-900">
-										This listing stays in your organization&apos;s library. It is not published to the global Bifrost MCP catalog. It is
+										This listing stays in your organization&apos;s library. It is not published to the global Gateway MCP catalog. It is
 										also a catalog entry, not a live MCP connection: credentials are never stored on the listing, each person who installs
 										it supplies their own.
 									</p>
@@ -220,7 +220,7 @@ export function MCPLibraryAddServerSheet({ open, onClose }: MCPLibraryAddServerS
 
 							{/* Connection */}
 							<div className="space-y-4">
-								<SectionHeader title="Connection" description="How Bifrost will reach this server once a member installs the listing." />
+								<SectionHeader title="Connection" description="How Gateway will reach this server once a member installs the listing." />
 								<div className="space-y-4 rounded-md border p-4">
 									<FormField
 										control={control}

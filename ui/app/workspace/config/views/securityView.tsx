@@ -374,7 +374,7 @@ export default function SecurityView() {
 										Password protect the dashboard <Badge variant="secondary">BETA</Badge>
 									</Label>
 									<p className="text-muted-foreground text-sm">
-										Set up authentication credentials to protect your Bifrost dashboard. Once configured, use the generated token for all
+										Set up authentication credentials to protect your Gateway dashboard. Once configured, use the generated token for all
 										admin API calls.
 									</p>
 								</div>
@@ -593,7 +593,7 @@ export default function SecurityView() {
 						</label>
 						<p className="text-muted-foreground text-sm">
 							When enabled, callers can pass a provider API key directly in the <b>Authorization</b>, <b>x-api-key</b>, or{" "}
-							<b>x-goog-api-key</b> header alongside <b>x-bf-direct-key: true</b>. Bifrost will use that key directly, bypassing the
+							<b>x-goog-api-key</b> header alongside <b>x-bf-direct-key: true</b>. Gateway will use that key directly, bypassing the
 							registered key pool.
 						</p>
 					</div>
@@ -782,7 +782,7 @@ const RestartWarning = () => {
 	return (
 		<Alert variant="destructive" className="mt-2">
 			<AlertTriangle className="h-4 w-4" />
-			<AlertDescription>Need to restart Bifrost to apply changes.</AlertDescription>
+			<AlertDescription>Need to restart Gateway to apply changes.</AlertDescription>
 		</Alert>
 	);
 };

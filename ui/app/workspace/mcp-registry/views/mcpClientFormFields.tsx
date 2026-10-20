@@ -531,7 +531,7 @@ export function StdioRuntimeNotice() {
 				<div className="flex-1">
 					<p className="text-xs font-medium text-amber-900">Docker Notice</p>
 					<p className="mt-0.5 text-xs text-amber-800">
-						If not using the official Bifrost Docker image, STDIO connections may not work if required commands (npx, python, etc.)
+						If not using the official Gateway Docker image, STDIO connections may not work if required commands (npx, python, etc.)
 						aren&apos;t installed. You can safely ignore this if running locally or using a custom image with the necessary dependencies.
 					</p>
 				</div>
@@ -869,8 +869,8 @@ export function MCPClientFormFields({ form, satellites, headersValidationError, 
 						lockConnection
 							? "The transport and target come from the library entry. Choose how requests to it are authenticated."
 							: isOpenAPI
-								? "Bifrost builds an MCP server from the document: every supported operation becomes a tool whose call is sent to the API. The server source and authentication settings cannot be changed later."
-								: "Choose how Bifrost connects to this server and, for network transports, how requests are authenticated. These settings cannot be changed later."
+								? "Gateway builds an MCP server from the document: every supported operation becomes a tool whose call is sent to the API. The server source and authentication settings cannot be changed later."
+								: "Choose how Gateway connects to this server and, for network transports, how requests are authenticated. These settings cannot be changed later."
 					}
 				/>
 				<div className="space-y-4 rounded-md border p-4">
@@ -1291,7 +1291,7 @@ export function MCPClientFormFields({ form, satellites, headersValidationError, 
 										clientIdLabel="OAuth Client ID (optional)"
 										clientIdPlaceholder="your-client-id (auto-generated if empty)"
 										clientIdHelperText="Will be auto-generated via dynamic registration if left empty and provider supports it"
-										clientIdTooltip="Leave empty to use Dynamic Client Registration (RFC 7591). Bifrost will automatically register with the OAuth provider if supported."
+										clientIdTooltip="Leave empty to use Dynamic Client Registration (RFC 7591). Gateway will automatically register with the OAuth provider if supported."
 										clientIdTestId="mcp-oauth-client-id"
 										clientSecretLabel="OAuth Client Secret (optional for PKCE)"
 										clientSecretPlaceholder="your-client-secret"
@@ -1351,8 +1351,8 @@ export function MCPClientFormFields({ form, satellites, headersValidationError, 
 							title="Launch Command"
 							description={
 								lockConnection
-									? "Bifrost runs this command to start the server. It comes from the library entry and can't be changed here."
-									: "Bifrost runs this command to start the server on the machine it's deployed on."
+									? "Gateway runs this command to start the server. It comes from the library entry and can't be changed here."
+									: "Gateway runs this command to start the server on the machine it's deployed on."
 							}
 						/>
 						<div className="space-y-4 rounded-md border p-4">
@@ -1406,7 +1406,7 @@ export function MCPClientFormFields({ form, satellites, headersValidationError, 
 												<Info className="text-muted-foreground h-4 w-4 cursor-help" />
 											</TooltipTrigger>
 											<TooltipContent className="max-w-xs">
-												<p>Add a value for each variable, or leave it blank to read the value from the environment where Bifrost runs.</p>
+												<p>Add a value for each variable, or leave it blank to read the value from the environment where Gateway runs.</p>
 											</TooltipContent>
 										</Tooltip>
 									</TooltipProvider>

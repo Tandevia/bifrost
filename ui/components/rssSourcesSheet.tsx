@@ -338,7 +338,7 @@ function AddFeedForm() {
 				<Label htmlFor="rss-add-feed-name">Name</Label>
 				<Input
 					id="rss-add-feed-name"
-					placeholder="Bifrost releases"
+					placeholder="Gateway releases"
 					data-testid="rss-add-feed-name"
 					aria-invalid={!!errors.name}
 					className={errors.name ? "border-destructive" : ""}

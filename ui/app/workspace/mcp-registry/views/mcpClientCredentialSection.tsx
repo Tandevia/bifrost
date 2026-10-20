@@ -78,7 +78,7 @@ function OAuthCredentialBlock({ mcpClient }: Props) {
 						{credential.status === "needs_reauth" &&
 							shouldSuggestReplacementClient(mcpClient.config.auth_type, credential.status_reason) && (
 								<Hint>
-									The provider rejected Bifrost&apos;s client itself, not just this token, so redoing consent with it will fail the same
+									The provider rejected Gateway&apos;s client itself, not just this token, so redoing consent with it will fail the same
 									way. Use Reauthorize with a new client from the server&apos;s actions menu to register a replacement first.
 								</Hint>
 							)}
@@ -173,7 +173,7 @@ function RefreshTokenValue({ credential, notIssuedHint }: { credential: MCPClien
 			<RefreshTokenStatus hasRefreshToken={credential.has_refresh_token} status={credential.status} />
 			{credential.status !== "needs_reauth" &&
 				(credential.has_refresh_token ? (
-					<Hint>Bifrost renews the access token automatically on the next request after expiry.</Hint>
+					<Hint>Gateway renews the access token automatically on the next request after expiry.</Hint>
 				) : (
 					<Hint>{notIssuedHint}</Hint>
 				))}
@@ -190,7 +190,7 @@ function HeaderCredentialBlock({ mcpClient }: Props) {
 		<div className="space-y-4" data-testid="mcpclient-credential-section">
 			<SectionHeader
 				title="Admin Verification Values"
-				description="Sample values supplied at verification. Bifrost uses them only to refresh the tool list. They are stored encrypted and never shown."
+				description="Sample values supplied at verification. Gateway uses them only to refresh the tool list. They are stored encrypted and never shown."
 				testId="mcpclient-credential-heading"
 			/>
 			{!credential ? (

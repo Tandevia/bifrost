@@ -36,14 +36,14 @@ export default function FirstPartyProviderAvailableDialog({ show, customProvider
 					</AlertDialogTitle>
 					{nameReserved ? (
 						<AlertDialogDescription data-testid="first-party-provider-name-reserved">
-							Bifrost now supports {label} natively, and the name <span className="text-foreground font-medium">{customProviderName}</span>{" "}
+							Gateway now supports {label} natively, and the name <span className="text-foreground font-medium">{customProviderName}</span>{" "}
 							belongs to the official provider. Your custom provider keeps serving requests, but its settings can no longer be saved and
 							config.json entries for it are skipped. Recreate it as a custom provider under another name (for example{" "}
 							<span className="text-foreground font-medium">{knownProvider}-custom</span>), then delete this one.
 						</AlertDialogDescription>
 					) : (
 						<AlertDialogDescription>
-							We noticed you have a custom provider named <span className="text-foreground font-medium">{customProviderName}</span>. Bifrost
+							We noticed you have a custom provider named <span className="text-foreground font-medium">{customProviderName}</span>. Gateway
 							now supports {label} natively. You can delete the custom provider and add the official {label} integration from{" "}
 							<span className="text-foreground font-medium">Add Provider</span>, or keep using your custom provider as is.
 						</AlertDialogDescription>

@@ -531,8 +531,8 @@ export default function WarpView() {
 		<div className="mx-auto w-full max-w-4xl space-y-4" data-testid="warp-config-view">
 			<form onSubmit={onSubmit} className="space-y-4">
 				<PageTitle title="Warp">
-					Warp answers questions about your Bifrost data in natural language. It runs on its own model, configured here and kept separate
-					from the providers Bifrost serves to your traffic.
+					Warp answers questions about your Gateway data in natural language. It runs on its own model, configured here and kept separate
+					from the providers Gateway serves to your traffic.
 				</PageTitle>
 
 				{isLoadingConfig ? (
@@ -1213,7 +1213,7 @@ function WarpModelRowFields({ row, index, disabled, error, onChange, onMakeDefau
 			</div>
 
 			<div className="grid gap-x-6 gap-y-5 md:grid-cols-3">
-				<WarpField label="Provider" htmlFor={`warp-provider${suffix}`} hint="Only providers already configured in Bifrost are listed.">
+				<WarpField label="Provider" htmlFor={`warp-provider${suffix}`} hint="Only providers already configured in Gateway are listed.">
 					<ProviderSelector
 						inputId={`warp-provider${suffix}`}
 						data-testid={`warp-provider-select${suffix}`}

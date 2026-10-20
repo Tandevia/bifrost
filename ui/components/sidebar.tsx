@@ -83,6 +83,7 @@ import { FEATURE_FLAGS } from "@/lib/constants/featureFlags";
 import { useBranding } from "@/lib/hooks/useBranding";
 import { useGetCoreConfigQuery, useGetLatestReleaseQuery, useGetVersionQuery, useIsAuthEnabledQuery } from "@/lib/store";
 import PoweredByBifrost from "@enterprise/components/branding/poweredByBifrost";
+import { BRAND_CONTACT_URL } from "@/lib/constants/brand";
 import { RbacOperation, RbacResource, useRbac } from "@enterprise/lib";
 import { Link, useLocation, useNavigate } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
@@ -130,12 +131,12 @@ const productionSetupHelpCard = {
 			<br />
 			<br />
 			<a
-				href="https://calendly.com/maximai/bifrost-demo?utm_source=bfd_sdbr"
+				href={BRAND_CONTACT_URL}
 				target="_blank"
 				className="text-primary font-medium underline"
 				rel="noopener noreferrer"
 			>
-				Book a demo with our team
+				Contact our team
 			</a>
 			.
 		</>
@@ -578,8 +579,9 @@ export default function AppSidebar() {
 	]);
 	const isProductionSetupDismissed = !!cookies[PRODUCTION_SETUP_DISMISSED_COOKIE];
 	const isOnboardingCardDismissed = !!cookies[ONBOARDING_CARD_DISMISSED_COOKIE];
+	// Upstream release announcements (getbifrost.ai) are not ours to show.
 	const { data: latestRelease } = useGetLatestReleaseQuery(undefined, {
-		skip: !mounted, // Only fetch after component is mounted
+		skip: true,
 	});
 	const hasLogsAccess = useRbac(RbacResource.Logs, RbacOperation.View);
 	const hasObservabilityAccess = useRbac(RbacResource.Observability, RbacOperation.View);
@@ -1074,7 +1076,7 @@ export default function AppSidebar() {
 				title: "Cluster",
 				url: "/workspace/cluster",
 				icon: Network,
-				description: "Monitor the Bifrost cluster",
+				description: "Monitor the Gateway cluster",
 				hasAccess: hasClusterConfigAccess,
 				subItems: [
 					{
@@ -1176,7 +1178,7 @@ export default function AppSidebar() {
 				title: "Settings",
 				url: "/workspace/config",
 				icon: Settings2Icon,
-				description: "Bifrost settings",
+				description: "Gateway settings",
 				hasAccess: hasSettingsAccess || hasAuditLogsAccess || hasUserProvisioningAccess || (hasWarpAccess && isWarpEnabled),
 				subItems: [
 					{
@@ -1586,7 +1588,7 @@ export default function AppSidebar() {
 				description: (
 					<div className="flex h-full flex-col gap-2 text-xs text-amber-700 dark:text-amber-300/80">
 						<p>
-							{remainingSteps} setup step{remainingSteps === 1 ? "" : "s"} left. Not completing these steps keeps your Bifrost setup
+							{remainingSteps} setup step{remainingSteps === 1 ? "" : "s"} left. Not completing these steps keeps your Gateway setup
 							vulnerable.
 						</p>
 						<button
@@ -1609,7 +1611,7 @@ export default function AppSidebar() {
 				title: `${latestRelease.name} is now available.`,
 				description: (
 					<div className="flex h-full flex-col gap-2">
-						<img src={newReleaseImage} alt="Bifrost" className="h-[95px] rounded-md object-cover" />
+						<img src={newReleaseImage} alt="Gateway" className="h-[95px] rounded-md object-cover" />
 						<a
 							href={`https://docs.getbifrost.ai/changelogs/${latestRelease.name}`}
 							target="_blank"

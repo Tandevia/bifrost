@@ -9,7 +9,7 @@ export function OrgChartView() {
 				testIdPrefix="org-chart"
 				icon={<Network className="h-[5.5rem] w-[5.5rem]" strokeWidth={1} />}
 				title="Unlock the org chart"
-				description="See budgets, spend, models and tools across business units, teams and users in one tree. This feature is part of the Bifrost enterprise license."
+				description="See budgets, spend, models and tools across business units, teams and users in one tree. This feature is not included in this edition of Tandevia Gateway."
 				readmeLink="https://docs.getbifrost.ai/enterprise/advanced-governance"
 			/>
 		</div>

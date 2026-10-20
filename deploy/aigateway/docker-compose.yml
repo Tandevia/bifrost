@@ -1,0 +1,31 @@
+# Tandevia Gateway on aigateway.forscope.eu (DigitalOcean droplet tandevia-gateway).
+#
+# The gateway is built from this repository and never listens on a public port:
+# cloudflared opens an outbound tunnel to Cloudflare, which terminates TLS for
+# aigateway.forscope.eu. Secrets live in .env next to this file (see README.md).
+services:
+  gateway:
+    build:
+      context: ../..
+      dockerfile: transports/Dockerfile
+      args:
+        VERSION: ${GATEWAY_VERSION:-dev}
+    image: tandevia/gateway:${GATEWAY_VERSION:-dev}
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      LOG_STYLE: json
+      GOMEMLIMIT: 1400MiB
+    volumes:
+      - ./data:/app/data
+    expose:
+      - "8080"
+
+  cloudflared:
+    image: cloudflare/cloudflared:2026.9.3
+    restart: unless-stopped
+    command: tunnel --no-autoupdate --config /etc/cloudflared/config.yml run
+    volumes:
+      - ./cloudflared:/etc/cloudflared:ro
+    depends_on:
+      - gateway

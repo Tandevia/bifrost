@@ -178,7 +178,7 @@ export function AgentFilterSidebar({ filters, onFiltersChange }: AgentFilterSide
 						<TextFilterInput label="Task ID" filterKey="task_id" filters={filters} onFiltersChange={onFiltersChange} />
 						<TextFilterInput label="Push Config ID" filterKey="push_config_id" filters={filters} onFiltersChange={onFiltersChange} />
 					</FilterSection>
-					<FilterSection title="Bifrost identifiers" defaultOpen={Boolean(filters.search || filters.request_id || filters.trace_id)}>
+					<FilterSection title="Gateway identifiers" defaultOpen={Boolean(filters.search || filters.request_id || filters.trace_id)}>
 						<TextFilterInput label="Request ID" filterKey="request_id" filters={filters} onFiltersChange={onFiltersChange} />
 						<TextFilterInput label="Trace ID" filterKey="trace_id" filters={filters} onFiltersChange={onFiltersChange} />
 						<TextFilterInput label="Record ID" filterKey="search" filters={filters} onFiltersChange={onFiltersChange} />

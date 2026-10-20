@@ -1407,7 +1407,7 @@ export function LogDetailView({
 								<LogEntryDetailsView
 									className="w-full"
 									label="Latency"
-									tooltip="Total end-to-end request time: upstream plus Bifrost overhead."
+									tooltip="Total end-to-end request time: upstream plus Gateway overhead."
 									value={log.latency == null || isNaN(log.latency) ? "N/A" : <div>{log.latency.toFixed(2)}ms</div>}
 								/>
 								<LogEntryDetailsView
@@ -1420,8 +1420,8 @@ export function LogDetailView({
 								/>
 								<LogEntryDetailsView
 									className="w-full"
-									label="Bifrost Overhead"
-									tooltip="Time added by Bifrost itself: routing, plugins, and processing."
+									label="Gateway Overhead"
+									tooltip="Time added by Gateway itself: routing, plugins, and processing."
 									value={
 										log.overhead_latency == null || isNaN(log.overhead_latency) ? "N/A" : <div>{log.overhead_latency.toFixed(2)}ms</div>
 									}

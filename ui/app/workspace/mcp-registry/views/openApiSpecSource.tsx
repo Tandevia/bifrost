@@ -187,7 +187,7 @@ export function OpenAPISpecSource({
 						aria-invalid={!!specUrlError}
 					/>
 					<p className="text-muted-foreground text-xs">
-						Bifrost fetches the document once and stores it with the server; the URL is kept as its source.
+						Gateway fetches the document once and stores it with the server; the URL is kept as its source.
 					</p>
 				</TabsContent>
 

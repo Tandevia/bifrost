@@ -95,7 +95,7 @@ export function EmptyState({ error }: EmptyStateProps) {
 
 client = openai.OpenAI(
     base_url="${baseUrl}/openai",
-    api_key="dummy-api-key" # Handled by Bifrost
+    api_key="dummy-api-key" # Handled by Gateway
 )
 
 response = client.chat.completions.create(
@@ -106,7 +106,7 @@ response = client.chat.completions.create(
 
 const openai = new OpenAI({
   baseURL: "${baseUrl}/openai",
-  apiKey: "dummy-api-key", // Handled by Bifrost
+  apiKey: "dummy-api-key", // Handled by Gateway
 });
 
 const response = await openai.chat.completions.create({
@@ -119,7 +119,7 @@ const response = await openai.chat.completions.create({
 
 client = anthropic.Anthropic(
     base_url="${baseUrl}/anthropic",
-    api_key="dummy-api-key" # Handled by Bifrost
+    api_key="dummy-api-key" # Handled by Gateway
 )
 
 response = client.messages.create(
@@ -131,7 +131,7 @@ response = client.messages.create(
 
 const anthropic = new Anthropic({
   baseURL: "${baseUrl}/anthropic",
-  apiKey: "dummy-api-key", // Handled by Bifrost
+  apiKey: "dummy-api-key", // Handled by Gateway
 });
 
 const response = await anthropic.messages.create({
@@ -145,7 +145,7 @@ const response = await anthropic.messages.create({
 from google.genai.types import HttpOptions
 
 client = genai.Client(
-    api_key="dummy-api-key", # Handled by Bifrost
+    api_key="dummy-api-key", # Handled by Gateway
     http_options=HttpOptions(base_url="${baseUrl}/genai")
 )
 
@@ -155,7 +155,7 @@ response = client.models.generate_content(
 )`,
 					typescript: `import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const genAI = new GoogleGenerativeAI("dummy-api-key", { // Handled by Bifrost
+const genAI = new GoogleGenerativeAI("dummy-api-key", { // Handled by Gateway
   baseUrl: "${baseUrl}/genai",
 });
 
@@ -185,10 +185,10 @@ from langchain_core.messages import HumanMessage
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
-# Initialize ChatOpenAI with Bifrost
+# Initialize ChatOpenAI with Gateway
 llm = ChatOpenAI(
     model="gpt-4o-mini",
-    api_key="dummy-api-key",  # Handled by Bifrost
+    api_key="dummy-api-key",  # Handled by Gateway
     base_url="${baseUrl}/langchain",
     max_tokens=100,
 )
@@ -213,7 +213,7 @@ import { StringOutputParser } from "@langchain/core/output_parsers";
 // Initialize ChatOpenAI with Bifrost
 const llm = new ChatOpenAI({
   model: "gpt-4o-mini",
-  openAIApiKey: "dummy-api-key", // Handled by Bifrost
+  openAIApiKey: "dummy-api-key", // Handled by Gateway
   clientOptions: {
     baseURL: "${baseUrl}/langchain",
   },

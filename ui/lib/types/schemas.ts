@@ -1946,7 +1946,7 @@ export type RoutingRuleSchema = z.infer<typeof routingRuleSchema>;
 export type BudgetOverrideFormSchema = z.infer<typeof budgetOverrideFormSchema>;
 // OSS setup lock: the operator's setup token entered on the login setup view.
 export const setupTokenFormSchema = z.object({
-	setup_token: z.string().trim().min(1, "Enter the setup token configured for this Bifrost instance"),
+	setup_token: z.string().trim().min(1, "Enter the setup token configured for this Gateway instance"),
 });
 
 export type SetupTokenFormSchema = z.infer<typeof setupTokenFormSchema>;

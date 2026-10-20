@@ -70,7 +70,7 @@ export function PricingFormFragment({ provider }: PricingFormFragmentProps) {
 									<div className="space-y-0.5">
 										<FormLabel>Ignore Provider-Reported Cost</FormLabel>
 										<p className="text-muted-foreground text-xs">
-											Discard the cost the provider returns in its usage object and calculate it in Bifrost from model pricing and pricing
+											Discard the cost the provider returns in its usage object and calculate it in Gateway from model pricing and pricing
 											overrides. Use this when a provider reports cost in its own units, such as credits or a non-USD currency. Models
 											without pricing or an override are logged at $0.
 										</p>

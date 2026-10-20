@@ -46,7 +46,7 @@ export function AgentEmptyState({ error }: AgentEmptyStateProps) {
   -H "x-bf-vk: <virtual-key>"`;
 		const message = `"message": {
       "role": "ROLE_USER",
-      "parts": [{"text": "Hello from Bifrost"}],
+      "parts": [{"text": "Hello from Gateway"}],
       "messageId": "msg-001"
     }`;
 
@@ -86,7 +86,7 @@ export function AgentEmptyState({ error }: AgentEmptyStateProps) {
 				<div className="flex items-center gap-4">
 					<div>
 						<h3 className="text-lg font-semibold">Send your first agent request</h3>
-						<p className="text-muted-foreground text-sm">Route an agent request through Bifrost to start collecting Agent Logs.</p>
+						<p className="text-muted-foreground text-sm">Route an agent request through Gateway to start collecting Agent Logs.</p>
 					</div>
 					<Button asChild variant="outline" className="ml-auto">
 						<Link to="/workspace/agent-gateway">

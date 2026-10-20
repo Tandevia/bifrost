@@ -6,7 +6,7 @@
 import { RoutingTreeView } from "./views/routingTreeView";
 
 export const metadata = {
-	title: "Routing Tree | Bifrost",
+	title: "Routing Tree | Tandevia Gateway",
 	description: "Read-only decision tree visualization of routing rules",
 };
 

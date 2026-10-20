@@ -1,0 +1,8 @@
+# Copy to config.yml on the server and fill in the tunnel ID.
+# The credentials file comes from `cloudflared tunnel create aigateway`.
+tunnel: <TUNNEL_ID>
+credentials-file: /etc/cloudflared/credentials.json
+ingress:
+  - hostname: aigateway.forscope.eu
+    service: http://gateway:8080
+  - service: http_status:404

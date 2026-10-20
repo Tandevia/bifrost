@@ -11,9 +11,9 @@ export default function AgentHandoverView() {
 				<div className="bg-primary/10 mx-auto mb-5 flex size-12 items-center justify-center rounded-full">
 					<Icon className="text-primary size-6" />
 				</div>
-				<h1 className="text-xl font-semibold tracking-tight">{isComplete ? "Bifrost Agent sign-in complete" : "Bifrost Agent sign-in"}</h1>
+				<h1 className="text-xl font-semibold tracking-tight">{isComplete ? "Gateway Agent sign-in complete" : "Gateway Agent sign-in"}</h1>
 				<p className="text-muted-foreground mt-2 text-sm">
-					{isComplete ? "You can close this window and return to the Bifrost Agent." : `Sign-in status: ${status}`}
+					{isComplete ? "You can close this window and return to the Gateway Agent." : `Sign-in status: ${status}`}
 				</p>
 			</section>
 		</main>

@@ -114,7 +114,7 @@ export function ClassifierStatusBadge({
 		ready: status ? `${status.total} reference phrase${status.total === 1 ? "" : "s"} embedded and serving.` : "Serving.",
 		failed: "Warmup failed.",
 		disabled: "Classification is off.",
-		unavailable: "Bifrost could not report whether the saved classifier is ready. Routing may still be working.",
+		unavailable: "Gateway could not report whether the saved classifier is ready. Routing may still be working.",
 	}[state];
 
 	return (

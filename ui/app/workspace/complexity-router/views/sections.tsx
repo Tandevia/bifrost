@@ -214,7 +214,7 @@ export function LLMPromptSection({ control, error, canUpdate, defaultPrompt, liv
 				<p className="text-destructive text-xs">{error.message}</p>
 			) : (
 				<p className="text-muted-foreground text-xs leading-relaxed">
-					Leave blank to use default guidance. Bifrost always appends a fixed response-format section (the tier names and the JSON answer
+					Leave blank to use default guidance. Gateway always appends a fixed response-format section (the tier names and the JSON answer
 					contract), so edits here refine what the tiers mean but cannot break routing.{" "}
 					<span className="font-mono tabular-nums">
 						{livePrompt.length}/{MAX_LLM_PROMPT_CHARACTERS}

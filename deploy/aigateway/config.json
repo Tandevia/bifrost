@@ -1,0 +1,13 @@
+{
+	"$schema": "https://www.getbifrost.ai/schema",
+	"encryption_key": "env.BIFROST_ENCRYPTION_KEY",
+	"setup_token": "env.BIFROST_SETUP_TOKEN",
+	"auth_config": {
+		"is_enabled": true,
+		"admin_username": "admin",
+		"admin_password": "env.BIFROST_ADMIN_PASSWORD"
+	},
+	"client": {
+		"enforce_auth_on_inference": true
+	}
+}

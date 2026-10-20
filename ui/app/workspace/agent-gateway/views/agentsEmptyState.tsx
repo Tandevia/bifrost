@@ -17,7 +17,7 @@ export function AgentsEmptyState({ onAddClick, canCreate = true }: AgentsEmptySt
 			<div className="flex flex-col gap-1">
 				<h1 className="text-muted-foreground text-xl font-medium">Agents route A2A traffic through the gateway</h1>
 				<div className="text-muted-foreground mx-auto mt-2 w-full max-w-[600px] text-sm font-normal">
-					Register your first agent to serve its agent card and proxy A2A requests through Bifrost. Configure discovery, upstream
+					Register your first agent to serve its agent card and proxy A2A requests through Gateway. Configure discovery, upstream
 					authentication, and which virtual keys may reach it.
 				</div>
 				<div className="mx-auto mt-6 flex flex-row flex-wrap items-center justify-center gap-2">

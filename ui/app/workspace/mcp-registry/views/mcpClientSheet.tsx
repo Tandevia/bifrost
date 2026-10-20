@@ -98,25 +98,25 @@ function stateDescription(mcpClient: MCPClient, isPerUserAuth: boolean): string 
 	switch (mcpClient.state) {
 		case "pending_verification":
 			return mcpClient.config.auth_type === "token_exchange"
-				? "This server needs a one-time verification: Bifrost exchanges your signed-in identity token, tests the connection, and discovers tools. Callers then have their own identity tokens exchanged automatically on every tool call."
+				? "This server needs a one-time verification: Gateway exchanges your signed-in identity token, tests the connection, and discovers tools. Callers then have their own identity tokens exchanged automatically on every tool call."
 				: mcpClient.config.auth_type === "per_user_oauth"
-					? "This client was declared in config.json. An admin sign-in is needed to verify the OAuth setup and discover tools; Bifrost keeps it on file to refresh the tool list periodically. Each user will still authenticate individually when they use this server."
+					? "This client was declared in config.json. An admin sign-in is needed to verify the OAuth setup and discover tools; Gateway keeps it on file to refresh the tool list periodically. Each user will still authenticate individually when they use this server."
 					: "This client was declared in config.json and needs a one-time OAuth authorization before it can be used.";
 		case "needs_reauth": {
 			// Each auth type names the repair action the actions menu actually
 			// offers for it, matching the credential block below.
 			const base =
 				mcpClient.config.auth_type === "token_exchange"
-					? "The admin credential Bifrost keeps on file to refresh this server's tool list needs repair. Callers' tool calls are unaffected. Use Re-verify as me from the server's actions menu to fix it."
+					? "The admin credential Gateway keeps on file to refresh this server's tool list needs repair. Callers' tool calls are unaffected. Use Re-verify as me from the server's actions menu to fix it."
 					: isPerUserAuth
-						? "The admin credential Bifrost keeps on file to refresh this server's tool list needs repair. End-user credentials and tool calls are unaffected. Use Refresh admin credential from the server's actions menu to fix it."
+						? "The admin credential Gateway keeps on file to refresh this server's tool list needs repair. End-user credentials and tool calls are unaffected. Use Refresh admin credential from the server's actions menu to fix it."
 						: "This connection's credentials need to be re-authorized. Use Reauthorize from the server's actions menu to redo the OAuth consent flow.";
 			return failure ? `${base} Reason: ${failure.message}` : base;
 		}
 		case "unstable":
 			return failure
-				? `Bifrost's last connection check failed ${formatDurationSince(failure.at)} ago while ${failureStageLabel(failure.stage).toLowerCase()}. Tool calls are still attempted normally; the next check runs within about 10 seconds.`
-				: "Bifrost's last connection check failed. Tool calls are still attempted normally; the next check runs within about 10 seconds.";
+				? `Gateway's last connection check failed ${formatDurationSince(failure.at)} ago while ${failureStageLabel(failure.stage).toLowerCase()}. Tool calls are still attempted normally; the next check runs within about 10 seconds.`
+				: "Gateway's last connection check failed. Tool calls are still attempted normally; the next check runs within about 10 seconds.";
 		case "degraded":
 			return "Instances of this deployment disagree about this server's state. Tool calls are still attempted on every instance.";
 		default:
@@ -2002,7 +2002,7 @@ export default function MCPClientSheet({
 																				</TooltipTrigger>
 																				<TooltipContent className="max-w-xs">
 																					<p>
-																						Applies only when Bifrost runs the LLM loop in Agent Mode. In MCP Gateway mode, the connected
+																						Applies only when Gateway runs the LLM loop in Agent Mode. In MCP Gateway mode, the connected
 																						client (Claude Desktop, Cursor, etc.) controls tool approval and this setting is ignored. Click
 																						to learn more.
 																					</p>

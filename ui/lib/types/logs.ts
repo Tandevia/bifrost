@@ -725,7 +725,7 @@ export interface KeyAttemptRecord {
 	key_id: string;
 	key_name: string;
 	fail_reason?: string | null; // why the key failed; null on a served attempt and on a cancelled one
-	failure_class?: string | null; // what the attempt told Bifrost (e.g. rate_limit, timeout, cancelled); null on a served attempt
+	failure_class?: string | null; // what the attempt told Gateway (e.g. rate_limit, timeout, cancelled); null on a served attempt
 	status_code?: number | null; // the status the class was derived from
 }
 
@@ -804,7 +804,7 @@ export interface LogEntry {
 	complexity_tier?: string; // Complexity tier used for routing ("SIMPLE", "MEDIUM", "COMPLEX"); absent when no routing rule referenced complexity_tier
 	complexity_mechanism?: string; // How the complexity tier was classified ("semantic", "decision", "llm", "session", "skipped"); absent when no routing rule referenced complexity_tier
 	complexity_score?: number; // Classifier score: the semantic classifier's similarity to the nearest reference phrase
-	session_id?: string; // Raw opaque session ID resolved by Bifrost for key stickiness and request correlation
+	session_id?: string; // Raw opaque session ID resolved by Gateway for key stickiness and request correlation
 	routing_engine_logs?: string; // Human-readable routing decision logs
 	plugin_logs?: string; // JSON string of plugin execution logs grouped by plugin name
 	selected_key?: DBKey;
@@ -843,7 +843,7 @@ export interface LogEntry {
 	tool_call_names?: string[]; // Distinct function names the response called; kept on the row even when content is offloaded
 	latency?: number;
 	upstream_latency?: number; // provider socket time across all attempts, ms
-	overhead_latency?: number; // Bifrost overhead (total minus upstream), ms
+	overhead_latency?: number; // Gateway overhead (total minus upstream), ms
 	overhead_breakdown?: OverheadBucket[]; // per-span self-time decomposition of overhead (microseconds)
 	token_usage?: LLMUsage;
 	cache_debug?: CacheMetadata;

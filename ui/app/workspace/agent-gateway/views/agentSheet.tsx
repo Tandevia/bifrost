@@ -377,7 +377,7 @@ export default function AgentSheet({ agent, onClose, onSaved }: AgentSheetProps)
 				<SheetHeader className="w-full flex-col items-start gap-1 p-0 py-4" headerClassName="mb-0 bg-card sticky -top-4 z-10 px-4 md:px-8">
 					<SheetTitle className="font-medium">{agent ? name.trim() : "New agent"}</SheetTitle>
 					<SheetDescription className="line-clamp-2">
-						{inspection?.description || "Register an A2A agent and configure how Bifrost connects to it."}
+						{inspection?.description || "Register an A2A agent and configure how Gateway connects to it."}
 					</SheetDescription>
 				</SheetHeader>
 				<div className="space-y-8 px-4 pb-8 md:px-8">
@@ -474,7 +474,7 @@ export default function AgentSheet({ agent, onClose, onSaved }: AgentSheetProps)
 					<section ref={authRef} className="scroll-mt-4 space-y-4">
 						<SectionHeader
 							title="Request authentication"
-							description="How Bifrost authenticates when it forwards requests to this agent."
+							description="How Gateway authenticates when it forwards requests to this agent."
 						/>
 						{unsupportedReason && !manualMode && (
 							<Alert variant="destructive">
@@ -545,14 +545,14 @@ export default function AgentSheet({ agent, onClose, onSaved }: AgentSheetProps)
 									</Badge>
 								)
 							}
-							tooltip="Use an HTTP(S) address with a scheme and optional port, without a path, credentials, query, or fragment. Bifrost may send agent credentials to these addresses. Private addresses also need permission in Agent Settings."
+							tooltip="Use an HTTP(S) address with a scheme and optional port, without a path, credentials, query, or fragment. Gateway may send agent credentials to these addresses. Private addresses also need permission in Agent Settings."
 							summary={additionalEndpointCount ? `${additionalEndpointCount} added` : "None added"}
 							open={credentialOriginsOpen}
 							onOpenChange={setCredentialOriginsOpen}
 							testId="agent-credential-origins-toggle"
 						>
 							<p className="text-muted-foreground text-xs">
-								Allow Bifrost to call this agent at another address. Only needed when its runtime endpoint differs from its agent card
+								Allow Gateway to call this agent at another address. Only needed when its runtime endpoint differs from its agent card
 								address. Private addresses must also be in the Private Network Allowlist in{" "}
 								<a href="/workspace/config/agent-gateway" className="text-primary underline underline-offset-2">
 									Agent Settings
@@ -656,8 +656,8 @@ export default function AgentSheet({ agent, onClose, onSaved }: AgentSheetProps)
 						</OptionGroup>
 
 						<SettingRow
-							label="Forward Bifrost authentication"
-							description="Turn this on for agents that use Bifrost for LLM or MCP calls. You will need to configure the server to send this authentication with those calls so access and usage can stay attributed to the requester."
+							label="Forward Gateway authentication"
+							description="Turn this on for agents that use Gateway for LLM or MCP calls. You will need to configure the server to send this authentication with those calls so access and usage can stay attributed to the requester."
 							checked={forwardAcceptedCredential}
 							onCheckedChange={setForwardAcceptedCredential}
 							testId="agent-forward-credential-switch"
@@ -672,7 +672,7 @@ export default function AgentSheet({ agent, onClose, onSaved }: AgentSheetProps)
 										<SelectTrigger className="w-full">
 											<SelectValue>
 												{forwardAcceptedCredentialOverridesAuth
-													? "Use the incoming Bifrost authentication"
+													? "Use the incoming Gateway authentication"
 													: "Keep the configured agent authentication"}
 											</SelectValue>
 										</SelectTrigger>
@@ -681,17 +681,17 @@ export default function AgentSheet({ agent, onClose, onSaved }: AgentSheetProps)
 												<div className="space-y-1 whitespace-normal">
 													<p>Keep the configured agent authentication</p>
 													<p className="text-muted-foreground text-xs">
-														If both use the same header, keep the agent’s configured credential. Forward the incoming Bifrost authentication
+														If both use the same header, keep the agent’s configured credential. Forward the incoming Gateway authentication
 														on other headers.
 													</p>
 												</div>
 											</SelectItem>
-											<SelectItem value="incoming" className="py-2" textValue="Use the incoming Bifrost authentication">
+											<SelectItem value="incoming" className="py-2" textValue="Use the incoming Gateway authentication">
 												<div className="space-y-1 whitespace-normal">
-													<p>Use the incoming Bifrost authentication</p>
+													<p>Use the incoming Gateway authentication</p>
 													<p className="text-muted-foreground text-xs">
-														If both use the same header, replace the configured credential with the incoming Bifrost authentication. For
-														agents that call Bifrost for LLM or MCP traffic, this keeps usage attributed to the original caller.
+														If both use the same header, replace the configured credential with the incoming Gateway authentication. For
+														agents that call Gateway for LLM or MCP traffic, this keeps usage attributed to the original caller.
 													</p>
 												</div>
 											</SelectItem>

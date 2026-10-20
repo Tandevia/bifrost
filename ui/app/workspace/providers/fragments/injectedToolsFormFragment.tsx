@@ -301,7 +301,7 @@ export function InjectedToolsFormFragment({ provider }: InjectedToolsFormFragmen
 		<Form {...form}>
 			<form onSubmit={form.handleSubmit(save)} className="space-y-4 px-4 md:px-6" data-testid="provider-config-tools-content">
 				<p className="text-muted-foreground text-xs">
-					MCP tools added to every chat and responses request to this provider. Bifrost runs them itself when the model calls them and
+					MCP tools added to every chat and responses request to this provider. Gateway runs them itself when the model calls them and
 					returns only the final answer. The model sees each tool under its name. A name that matches a tool the client sends replaces that
 					tool, and the name <code className="font-mono">web_search</code> also replaces native web search.
 				</p>

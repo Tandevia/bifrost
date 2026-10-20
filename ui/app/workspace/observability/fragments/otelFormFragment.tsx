@@ -506,7 +506,7 @@ function OtelProfileSection({ form, control, index, hasOtelAccess, canRemove, op
 									<FormItem className="w-full">
 										<FormLabel>TLS CA Certificate Path</FormLabel>
 										<FormDescription>
-											File path to the CA certificate on the Bifrost server. Leave empty to use system root CAs.
+											File path to the CA certificate on the Gateway server. Leave empty to use system root CAs.
 										</FormDescription>
 										<FormControl>
 											<Input placeholder="/path/to/ca.crt" disabled={!hasOtelAccess} {...field} />
@@ -830,7 +830,7 @@ function OtelProfileSection({ form, control, index, hasOtelAccess, canRemove, op
 										<div className="flex w-full flex-row items-center gap-2">
 											<div className="flex flex-col gap-1">
 												<h3 className="text-sm font-medium">Overhead breakdown</h3>
-												<p className="text-muted-foreground text-xs">Export per-component Bifrost overhead latency as a histogram.</p>
+												<p className="text-muted-foreground text-xs">Export per-component Gateway overhead latency as a histogram.</p>
 											</div>
 											<div className="ml-auto">
 												<Switch

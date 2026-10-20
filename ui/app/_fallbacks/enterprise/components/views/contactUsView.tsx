@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { BRAND_CONTACT_URL } from "@/lib/constants/brand";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
 
@@ -33,13 +34,13 @@ export default function ContactUsView({ icon, title, description, className, rea
 					</Button>
 					<Button
 						className="mx-auto mt-6"
-						aria-label="Book a demo (opens Calendly in new tab)"
+						aria-label="Contact us (opens in new tab)"
 						data-testid={testIdPrefix ? `${testIdPrefix}-book-demo` : undefined}
 						onClick={() => {
-							window.open("https://calendly.com/maximai/bifrost-demo?utm_source=bfd_ent", "_blank", "noopener,noreferrer");
+							window.open(BRAND_CONTACT_URL, "_blank", "noopener,noreferrer");
 						}}
 					>
-						Book a demo
+						Contact us
 					</Button>
 				</div>
 			</div>

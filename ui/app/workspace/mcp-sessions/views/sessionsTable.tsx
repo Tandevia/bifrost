@@ -117,7 +117,7 @@ export default function SessionsTable({
 							<>
 								<AlertDialogTitle>Revoke these stored header values?</AlertDialogTitle>
 								<AlertDialogDescription>
-									Bifrost will remove the stored credential values for this binding. There is no upstream token to revoke; the user will
+									Gateway will remove the stored credential values for this binding. There is no upstream token to revoke; the user will
 									need to resubmit their header values to use this MCP again.
 								</AlertDialogDescription>
 							</>
@@ -125,7 +125,7 @@ export default function SessionsTable({
 							<>
 								<AlertDialogTitle>Revoke this MCP session?</AlertDialogTitle>
 								<AlertDialogDescription>
-									Bifrost will remove the stored credential for this binding. The upstream OAuth token is not revoked at the provider; it
+									Gateway will remove the stored credential for this binding. The upstream OAuth token is not revoked at the provider; it
 									stays detached and expires naturally. Anyone using this binding will need to re-authenticate to obtain a fresh token.
 								</AlertDialogDescription>
 							</>
@@ -191,13 +191,13 @@ export default function SessionsTable({
 								<TableHead>
 									<HeaderWithTooltip
 										label="Access token expiry"
-										tooltip="When the current access token expires. With a refresh token, Bifrost renews it on the next request, so an active row past its expiry silently mints a new token at use time. Without one, a past expiry means the row must be re-authenticated. Header rows do not have an upstream expiry; their values stay valid until revoked or the schema changes."
+										tooltip="When the current access token expires. With a refresh token, Gateway renews it on the next request, so an active row past its expiry silently mints a new token at use time. Without one, a past expiry means the row must be re-authenticated. Header rows do not have an upstream expiry; their values stay valid until revoked or the schema changes."
 									/>
 								</TableHead>
 								<TableHead>
 									<HeaderWithTooltip
 										label="Refresh token"
-										tooltip="Whether the provider issued a refresh token. Present: Bifrost renews the access token automatically at use time. Not issued: the row must be re-authenticated once the access token expires. Rejected upstream: the provider refused the last refresh, so the row needs re-auth. Header rows and pending sign-ins have no token."
+										tooltip="Whether the provider issued a refresh token. Present: Gateway renews the access token automatically at use time. Not issued: the row must be re-authenticated once the access token expires. Rejected upstream: the provider refused the last refresh, so the row needs re-auth. Header rows and pending sign-ins have no token."
 									/>
 								</TableHead>
 								<TableHead>Created</TableHead>

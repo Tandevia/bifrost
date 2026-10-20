@@ -96,7 +96,7 @@ export default function PrometheusView({ onDelete, isDeleting }: PrometheusViewP
 		<div className="flex w-full flex-col gap-4">
 			<div className="flex w-full flex-col gap-3">
 				<div className="text-muted-foreground mb-2 text-xs font-normal">
-					Expose Bifrost metrics for Prometheus to scrape from the <code>/metrics</code> endpoint, or push them to a Prometheus Push
+					Expose Gateway metrics for Prometheus to scrape from the <code>/metrics</code> endpoint, or push them to a Prometheus Push
           Gateway.
         </div>
 				<PrometheusFormFragment

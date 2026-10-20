@@ -190,7 +190,7 @@ export function PrometheusFormFragment({
 					<div className="flex items-center justify-between gap-4">
 						<div className="flex flex-col gap-1">
 							<h3 className="text-sm font-medium">Overhead breakdown</h3>
-							<p className="text-muted-foreground text-xs">Export per-component Bifrost overhead latency as a histogram.</p>
+							<p className="text-muted-foreground text-xs">Export per-component Gateway overhead latency as a histogram.</p>
 						</div>
 						<FormField
 							control={form.control}
@@ -331,7 +331,7 @@ export function PrometheusFormFragment({
 						<Alert variant="info">
 							<AlertTriangle className="" />
 							<AlertDescription className="text-xs">
-								If you are running multiple Bifrost nodes, use push gateway for accurate metrics. Pull-based /metrics scraping may miss
+								If you are running multiple Gateway nodes, use push gateway for accurate metrics. Pull-based /metrics scraping may miss
 								nodes behind a load balancer.
 							</AlertDescription>
 						</Alert>
@@ -411,7 +411,7 @@ export function PrometheusFormFragment({
 													</TooltipTrigger>
 													<TooltipContent>
 														<p className="max-w-xs text-xs">
-															Used to identify this Bifrost instance in metrics. If not set, hostname is used automatically.
+															Used to identify this Gateway instance in metrics. If not set, hostname is used automatically.
 														</p>
 													</TooltipContent>
 												</Tooltip>

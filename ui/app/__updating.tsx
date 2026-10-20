@@ -20,7 +20,7 @@ export function UpdatingBanner() {
 					<span className="bg-primary relative size-2 rounded-full" aria-hidden="true" />
 				</div>
 				<div className="min-w-0 flex-1">
-					<p className="text-foreground text-sm font-medium">Bifrost is upgrading</p>
+					<p className="text-foreground text-sm font-medium">Gateway is upgrading</p>
 					<p className="text-muted-foreground truncate text-xs">You can keep working and reload when the upgrade is complete.</p>
 				</div>
 				<Button
@@ -40,18 +40,18 @@ export function UpdatingBanner() {
 
 const UPDATING_COPY = IS_ENTERPRISE
 	? {
-			title: "A new version of Bifrost is rolling out",
+			title: "A new version of Gateway is rolling out",
 			waiting:
-				"Your organization has chosen to roll out a new version of Bifrost. The rollout is progressing one instance at a time. This page will reload automatically once the rollout completes across all instances.",
+				"Your organization has chosen to roll out a new version of Gateway. The rollout is progressing one instance at a time. This page will reload automatically once the rollout completes across all instances.",
 			paused:
-				"The rollout is still in progress. Reload to check again in a minute. If this doesn't work, contact the administrator of your Bifrost deployment.",
+				"The rollout is still in progress. Reload to check again in a minute. If this doesn't work, contact the administrator of your Gateway deployment.",
 			waitingStatus: "Waiting for the rollout to complete…",
 		}
 	: {
-			title: "Bifrost is upgrading",
+			title: "Gateway is upgrading",
 			waiting:
-				"A new version of Bifrost is being rolled out. Keep this page open and it will reload automatically when the upgrade is complete.",
-			paused: "Bifrost is still upgrading. If this is taking longer than expected, reach out to your administrator for more information.",
+				"A new version of Gateway is being rolled out. Keep this page open and it will reload automatically when the upgrade is complete.",
+			paused: "Gateway is still upgrading. If this is taking longer than expected, reach out to your administrator for more information.",
 			waitingStatus: "Waiting for the upgrade to complete",
 		};
 

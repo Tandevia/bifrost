@@ -71,7 +71,7 @@ export default function SkillsSettingsView() {
 					External Client URL
 				</label>
 				<p className="text-muted-foreground text-sm">
-					Bifrost&apos;s public base URL for Claude Code and Codex marketplaces. Leave blank to disable marketplace serving and
+					Gateway&apos;s public base URL for Claude Code and Codex marketplaces. Leave blank to disable marketplace serving and
 					registration. Skill management and downloads remain available. Supports environment variable and vault references.
 				</p>
 				<SecretVarInput

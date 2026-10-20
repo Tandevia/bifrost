@@ -373,7 +373,7 @@ export default function OnboardingWidget() {
 						<PopoverContent align="start" className="z-[1002] w-64 p-3">
 							<div className="mb-2 flex items-start gap-1.5 text-amber-600 dark:text-amber-500">
 								<AlertTriangle className="mt-0.5 size-3.5 flex-shrink-0" />
-								<p className="text-xs leading-snug">Not completing these steps keeps your Bifrost setup vulnerable.</p>
+								<p className="text-xs leading-snug">Not completing these steps keeps your Gateway setup vulnerable.</p>
 							</div>
 							{remindPickerView === "options" ? (
 								<div className="flex flex-col gap-0.5">

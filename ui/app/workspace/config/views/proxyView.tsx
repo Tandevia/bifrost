@@ -343,7 +343,7 @@ export default function ProxyView() {
 							{!IS_ENTERPRISE && (
 								<Alert>
 									<Info className="h-4 w-4" />
-									<AlertDescription>SCIM proxy support is available in Bifrost Enterprise.</AlertDescription>
+									<AlertDescription>SCIM proxy support is not included in this edition of Tandevia Gateway.</AlertDescription>
 								</Alert>
 							)}
 						</div>

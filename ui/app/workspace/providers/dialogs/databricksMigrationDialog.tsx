@@ -235,7 +235,7 @@ export default function DatabricksMigrationDialog({ show, provider, onDeferred, 
 								<>
 									<p>
 										<span className="text-foreground font-medium">{provider.name}</span> is a custom provider pointing at a Databricks
-										workspace. Bifrost now supports Databricks natively, with personal access tokens, OAuth service principals, Model
+										workspace. Gateway now supports Databricks natively, with personal access tokens, OAuth service principals, Model
 										Serving and AI Gateway routing. Your existing configuration needs to be migrated to the official provider.
 									</p>
 									<p>

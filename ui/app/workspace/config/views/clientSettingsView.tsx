@@ -300,7 +300,7 @@ export default function ClientSettingsView() {
 							Drop Excess Requests
 						</label>
 						<p className="text-muted-foreground text-sm">
-							If enabled, Bifrost will drop requests that exceed pool capacity.{" "}
+							If enabled, Gateway will drop requests that exceed pool capacity.{" "}
 							{localConfig.drop_excess_requests && droppedRequests > 0 ? (
 								<span>
 									Have dropped <b>{droppedRequests} requests</b> since last restart.
@@ -364,7 +364,7 @@ export default function ClientSettingsView() {
 							Extra Fields Placement
 						</label>
 						<p className="text-muted-foreground text-sm">
-							Where inference responses carry Bifrost&apos;s <b>extra_fields</b> metadata. <b>Body</b> keeps the extra_fields object in the
+							Where inference responses carry Gateway&apos;s <b>extra_fields</b> metadata. <b>Body</b> keeps the extra_fields object in the
 							JSON response. <b>Headers</b> removes it from the body and from every streaming chunk, and sends its scalar fields as{" "}
 							<b>x-bifrost-*</b> response headers.
 						</p>

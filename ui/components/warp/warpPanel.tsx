@@ -310,7 +310,7 @@ export default function WarpPanel() {
 							<div className="min-w-0 space-y-5 p-4" style={{ paddingBottom: controlsHeight + 16 }} ref={contentRef}>
 								{warp.turns.length === 0 && !isStreaming ? (
 									<div className="space-y-3 pt-6" data-testid="warp-empty-state">
-										<p className="text-sm font-medium">Ask about your Bifrost data</p>
+										<p className="text-sm font-medium">Ask about your Gateway data</p>
 										<div className="space-y-1.5">
 											{STARTERS.map((starter) => (
 												<button
