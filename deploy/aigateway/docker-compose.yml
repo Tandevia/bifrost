@@ -35,5 +35,14 @@ services:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - ./caddy/data:/data
       - ./caddy/config:/config
+    # `edge` is shared with the other stacks Caddy fronts (Tandevia Workspace on
+    # ai.forscope.eu): docker network create edge
+    networks:
+      - default
+      - edge
     depends_on:
       - gateway
+
+networks:
+  edge:
+    external: true

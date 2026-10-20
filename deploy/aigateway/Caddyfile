@@ -9,3 +9,11 @@ aigateway.forscope.eu {
 		flush_interval -1
 	}
 }
+
+# Tandevia Workspace, from the `workspace` compose project over the `edge` network.
+ai.forscope.eu {
+	encode zstd gzip
+	reverse_proxy workspace:3080 {
+		flush_interval -1
+	}
+}
